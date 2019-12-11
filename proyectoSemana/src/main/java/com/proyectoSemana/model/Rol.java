@@ -11,8 +11,8 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "tipo_rol", unique = true, nullable = false)
-    private String tipo;
+    @Column(name = "rol_type", unique = true, nullable = false)
+    private String rolType;
 
     public Long getId() {
         return id;
@@ -22,11 +22,11 @@ public class Rol {
         this.id = id;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getRolType() {
+        return rolType;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setRolType(String rolType) {
+        this.rolType = rolType;
     }
 }

@@ -1,9 +1,10 @@
 package com.proyectoSemana.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Entity
-@Table(name = "login")
+@Table(name = "Login")
 public class Login {
 
     @Id
@@ -11,8 +12,10 @@ public class Login {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Email
     @Column(name = "email", unique = true, nullable = false)
     private String email;
+
     @Column(name = "password", nullable = false)
     private String password;
 
