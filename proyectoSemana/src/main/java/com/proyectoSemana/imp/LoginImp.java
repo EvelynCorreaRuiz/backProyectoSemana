@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 @Service
 public class LoginImp implements ILoginService {
 
@@ -37,25 +36,25 @@ public class LoginImp implements ILoginService {
     public ResponseLoginDto guardarLogin(ReqLoginDto reqLoginDto) throws Exception {
         ResponseLoginDto responseLoginDto;
         Login login;
-        try{
-                Login validateEmail= loginRepository.findByEmail(reqLoginDto.getEmailDto());
-             if(null == validateEmail && reqLoginDto.getPasswordDto().length()>Constant.ZERO){
-                 login = new Login();
-                 login.setEmail(reqLoginDto.getEmailDto());
-                 login.setPassword(iPbkdf2EncryptService.generarHashPassword(reqLoginDto.getPasswordDto()));
+        try {
+            Login validateEmail = loginRepository.findByEmail(reqLoginDto.getEmailDto());
+            if (null == validateEmail && reqLoginDto.getPasswordDto().length() > Constant.ZERO) {
+                login = new Login();
+                login.setEmail(reqLoginDto.getEmailDto());
+                login.setPassword(iPbkdf2EncryptService.generarHashPassword(reqLoginDto.getPasswordDto()));
 
-                 responseLoginDto = transformarObjetos.transformarLoginToResponseDto(loginRepository.save(login));
-             }else{
+                responseLoginDto = transformarObjetos.transformarLoginToResponseDto(loginRepository.save(login));
+            } else {
                 throw new NoGuardarException(Constant.ERROR_GUARDAR);
-             }
+            }
 
-       }catch (NoGuardarException ex){
+        } catch (NoGuardarException ex) {
             ex.printStackTrace();
             throw new NoGuardarException(ex.getMessage());
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
-       }
+        }
         return responseLoginDto;
     }
 
@@ -63,18 +62,18 @@ public class LoginImp implements ILoginService {
     public boolean validarSession(ReqLoginDto reqLoginDto) throws Exception {
         Login loginLocal;
         try {
-                loginLocal = loginRepository.findByEmail(reqLoginDto.getEmailDto());
-                if(null != loginLocal){
-                    return iPbkdf2EncryptService.validarPassword(reqLoginDto.getPasswordDto(),loginLocal.getPassword());
-                }else{
-                    throw new NoValidarSesionException(Constant.ERROR_SESSION);
-                }
+            loginLocal = loginRepository.findByEmail(reqLoginDto.getEmailDto());
+            if (null != loginLocal) {
+                return iPbkdf2EncryptService.validarPassword(reqLoginDto.getPasswordDto(), loginLocal.getPassword());
+            } else {
+                throw new NoValidarSesionException(Constant.ERROR_SESSION);
+            }
 
-        }catch (NoValidarSesionException ex){
+        } catch (NoValidarSesionException ex) {
             ex.printStackTrace();
             throw new NoValidarSesionException(ex.getMessage());
 
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }
@@ -83,16 +82,16 @@ public class LoginImp implements ILoginService {
     @Override
     public Login buscarPorId(Long id) throws Exception {
         Login loginLocal;
-        try{
+        try {
 
             loginLocal = transformarObjetos.transformarOptionaLogin(loginRepository.findById(id));
-            if(null == loginLocal){
+            if (null == loginLocal) {
                 throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
             }
-        }catch (NoEncontradoException ex){
+        } catch (NoEncontradoException ex) {
             ex.printStackTrace();
             throw new NoEncontradoException(ex.getMessage());
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }
@@ -103,8 +102,8 @@ public class LoginImp implements ILoginService {
     public List<Login> listarLogin() throws Exception {
         List<Login> listLogin = new ArrayList<>();
         try {
-             listLogin = loginRepository.findAll();
-        }catch (Exception ex){
+            listLogin = loginRepository.findAll();
+        } catch (Exception ex) {
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }
@@ -113,19 +112,19 @@ public class LoginImp implements ILoginService {
 
     @Override
     public boolean eliminarLogin(Long id) throws Exception {
-        try{
+        try {
 
             Login loginLocal = transformarObjetos.transformarOptionaLogin(loginRepository.findById(id));
-            if(null == loginLocal){
+            if (null == loginLocal) {
                 throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
-            }else{
+            } else {
                 loginRepository.deleteById(id);
                 return true;
             }
-        }catch (NoEncontradoException ex){
+        } catch (NoEncontradoException ex) {
             ex.printStackTrace();
             throw new NoEncontradoException(ex.getMessage());
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }
@@ -134,24 +133,24 @@ public class LoginImp implements ILoginService {
     @Override
     public ResponseLoginDto actualizarLogin(Long id, ReqLoginDto reqLoginDto) throws Exception {
         ResponseLoginDto responseLoginDto = null;
-        try{
+        try {
 
             Login login = buscarPorId(id);
-            if(null != reqLoginDto && null != reqLoginDto.getEmailDto() && null != reqLoginDto.getPasswordDto()){
+            if (null != reqLoginDto && null != reqLoginDto.getEmailDto() && null != reqLoginDto.getPasswordDto()) {
                 login.setEmail(reqLoginDto.getEmailDto());
                 login.setPassword(iPbkdf2EncryptService.generarHashPassword(reqLoginDto.getPasswordDto()));
                 responseLoginDto = transformarObjetos.transformarLoginToResponseDto(loginRepository.save(login));
-            }else{
+            } else {
                 throw new NoActualizarException(Constant.ERROR_ACTUALIZAR);
             }
 
-        }catch (NoActualizarException ex){
+        } catch (NoActualizarException ex) {
             ex.printStackTrace();
             throw new NoActualizarException(ex.getMessage());
-        }catch (NoEncontradoException ex){
+        } catch (NoEncontradoException ex) {
             ex.printStackTrace();
             throw new NoEncontradoException(ex.getMessage());
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }

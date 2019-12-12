@@ -21,93 +21,94 @@ public class LoginController {
     private LoginImp loginImp;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Object> guardarLogin(@RequestBody ReqLoginDto loginDto){
+    public ResponseEntity<Object> guardarLogin(@RequestBody ReqLoginDto loginDto) {
         ResponseEntity<Object> rs = null;
         try {
-            rs = new ResponseEntity<Object>(loginImp.guardarLogin(loginDto), HttpStatus.OK) ;
-        }catch (NoGuardarException ex){
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE) ;
-        }catch (Exception ex){
+            rs = new ResponseEntity<Object>(loginImp.guardarLogin(loginDto), HttpStatus.OK);
+        } catch (NoGuardarException ex) {
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE);
+        } catch (Exception ex) {
             ex.printStackTrace();
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR) ;
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return  rs;
+        return rs;
     }
 
-    @RequestMapping(value = "/sessions",method = RequestMethod.POST)
-    public ResponseEntity<Object> validarSession(@RequestBody ReqLoginDto loginDto){
+    @RequestMapping(value = "/sessions", method = RequestMethod.POST)
+    public ResponseEntity<Object> validarSession(@RequestBody ReqLoginDto loginDto) {
         ResponseEntity<Object> rs = null;
         try {
             rs = new ResponseEntity<Object>(loginImp.validarSession(loginDto), HttpStatus.OK);
-        }catch (NoValidarSesionException ex){
+        } catch (NoValidarSesionException ex) {
             ex.printStackTrace();
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.UNAUTHORIZED) ;
-        }catch (Exception ex){
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.UNAUTHORIZED);
+        } catch (Exception ex) {
             ex.printStackTrace();
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR) ;
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return  rs;
+        return rs;
     }
 
-    @RequestMapping(value = "/{id}",method = RequestMethod.GET)
-    public ResponseEntity<Object> buscarPorId(@PathVariable Long id){
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Object> buscarPorId(@PathVariable Long id) {
         ResponseEntity<Object> rs = null;
         try {
             rs = new ResponseEntity<Object>(loginImp.buscarPorId(id), HttpStatus.OK);
-        }catch (NoEncontradoException ex){
+        } catch (NoEncontradoException ex) {
             ex.printStackTrace();
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_FOUND) ;
-        }catch (Exception ex){
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        } catch (Exception ex) {
             ex.printStackTrace();
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR) ;
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return  rs;
+        return rs;
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<Object> listarLogin(){
+    public ResponseEntity<Object> listarLogin() {
         ResponseEntity<Object> rs = null;
         try {
             rs = new ResponseEntity<Object>(loginImp.listarLogin(), HttpStatus.OK);
-        }catch (NoEncontradoException ex){
+        } catch (NoEncontradoException ex) {
             ex.printStackTrace();
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_FOUND) ;
-        }catch (Exception ex){
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        } catch (Exception ex) {
             ex.printStackTrace();
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR) ;
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return  rs;
+        return rs;
     }
 
-    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
-    public ResponseEntity<Object> eliminarLogin(@PathVariable Long id){
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Object> eliminarLogin(@PathVariable Long id) {
         ResponseEntity<Object> rs = null;
         try {
             rs = new ResponseEntity<Object>(loginImp.eliminarLogin(id), HttpStatus.OK);
-        }catch (NoEncontradoException ex){
+        } catch (NoEncontradoException ex) {
             ex.printStackTrace();
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_FOUND) ;
-        }catch (Exception ex){
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        } catch (Exception ex) {
             ex.printStackTrace();
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR) ;
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return  rs;
+        return rs;
     }
-    @RequestMapping(value = "/{id}",method = RequestMethod.PUT)
-    public ResponseEntity<Object> actualizarLogin(@PathVariable Long id, @RequestBody ReqLoginDto reqLoginDto){
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Object> actualizarLogin(@PathVariable Long id, @RequestBody ReqLoginDto reqLoginDto) {
         ResponseEntity<Object> rs = null;
         try {
-            rs = new ResponseEntity<Object>(loginImp.actualizarLogin(id,reqLoginDto), HttpStatus.OK);
-        }catch (NoActualizarException ex){
+            rs = new ResponseEntity<Object>(loginImp.actualizarLogin(id, reqLoginDto), HttpStatus.OK);
+        } catch (NoActualizarException ex) {
             ex.printStackTrace();
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE) ;
-        }catch (NoEncontradoException ex){
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE);
+        } catch (NoEncontradoException ex) {
             ex.printStackTrace();
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_FOUND) ;
-        }catch (Exception ex){
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        } catch (Exception ex) {
             ex.printStackTrace();
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR) ;
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return  rs;
+        return rs;
     }
 }

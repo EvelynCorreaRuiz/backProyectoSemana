@@ -13,10 +13,10 @@ public class CourseImp implements ICourseServices {
 
     public Course saveLogin(Course course) {
         Course courseLocal = null;
-        try{
+        try {
             courseLocal = courseRepository.save(course);
 
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
 

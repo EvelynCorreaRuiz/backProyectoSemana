@@ -14,13 +14,13 @@ public class MappingObjetosLogin {
     public Login transformarOptionaLogin(Optional<Login> loginOptional) throws Exception {
         Login login = null;
         try {
-            if(loginOptional.isPresent()){
+            if (loginOptional.isPresent()) {
                 login = new Login();
                 login.setId(loginOptional.get().getId());
                 login.setPassword(loginOptional.get().getPassword());
                 login.setEmail(loginOptional.get().getEmail());
             }
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }
@@ -30,11 +30,11 @@ public class MappingObjetosLogin {
     public ResponseLoginDto transformarLoginToResponseDto(Login login) throws Exception {
         ResponseLoginDto responseLoginDto = null;
         try {
-            if(null != login){
+            if (null != login) {
                 responseLoginDto = new ResponseLoginDto();
                 responseLoginDto.setEmailDto(login.getEmail());
             }
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }

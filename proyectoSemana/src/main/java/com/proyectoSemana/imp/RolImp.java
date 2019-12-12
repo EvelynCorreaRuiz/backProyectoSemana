@@ -23,19 +23,19 @@ public class RolImp implements IRolService {
 
     @Override
     public ResponseRolDto guardarRol(ReqRolDto reqRolDto) throws Exception {
-        ResponseRolDto responseRolDto =  null;
+        ResponseRolDto responseRolDto = null;
         try {
-                if(null != reqRolDto.getTipoRolDto() && null != reqRolDto){
-                    responseRolDto = mappingObjetosRol.transformModelToDto(rolRepository.save(mappingObjetosRol.transformDtoIntoModel(reqRolDto)));
-                }else{
-                    throw new NoGuardarException(Constant.ERROR_GUARDAR);
-                }
+            if (null != reqRolDto.getTipoRolDto() && null != reqRolDto) {
+                responseRolDto = mappingObjetosRol.transformModelToDto(rolRepository.save(mappingObjetosRol.transformDtoIntoModel(reqRolDto)));
+            } else {
+                throw new NoGuardarException(Constant.ERROR_GUARDAR);
+            }
 
-        }catch (NoGuardarException ex){
+        } catch (NoGuardarException ex) {
             ex.printStackTrace();
             throw new NoGuardarException(ex.getMessage());
 
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }
@@ -44,15 +44,15 @@ public class RolImp implements IRolService {
 
     @Override
     public Rol buscarRolporId(Long id) throws Exception {
-        Rol rol =  null;
+        Rol rol = null;
         try {
-             rol = mappingObjetosRol.transformOptionalToModel(rolRepository.findById(id));
-             if(null == rol){
-                 throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
-             }
-        }catch (NoEncontradoException ex){
+            rol = mappingObjetosRol.transformOptionalToModel(rolRepository.findById(id));
+            if (null == rol) {
+                throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
+            }
+        } catch (NoEncontradoException ex) {
             throw new NoEncontradoException(ex.getMessage());
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }
