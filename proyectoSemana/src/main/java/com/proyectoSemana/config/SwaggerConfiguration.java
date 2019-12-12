@@ -21,7 +21,7 @@ public class SwaggerConfiguration {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.forge.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.proyectoSemana.controller"))
                 .paths(regex("/api.*"))
                 .build()
                 .apiInfo(apiInfo());
@@ -33,7 +33,7 @@ public class SwaggerConfiguration {
                 "API REST SWAGGER",
                 "v1.0",
                 " ",
-                new Contact("Sebastian Gonzalez","", "sebastian.gonzalez@zentagroup.com"),
+                new Contact("X Force","", "joseluisj99@gmail.com"),
                 "License of API", "API license URL", Collections.emptyList());
     }
 
