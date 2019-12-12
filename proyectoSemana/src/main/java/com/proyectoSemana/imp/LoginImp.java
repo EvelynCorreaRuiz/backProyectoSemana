@@ -1,4 +1,4 @@
-//package encargado de logica de negocio
+
 package com.proyectoSemana.imp;
 
 import com.proyectoSemana.dto.ReqLoginDto;
