@@ -3,7 +3,7 @@ package com.proyectoSemana.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "asignatura")
+@Table(name="Asignatura")
 public class Asignatura {
     @Id
     @Column(name = "id_asignatura")
