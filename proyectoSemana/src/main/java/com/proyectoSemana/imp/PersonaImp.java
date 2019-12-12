@@ -39,28 +39,24 @@ public class PersonaImp implements IPersonaService {
             Login login = loginImp.buscarPorId(persona.getIdLoginDto());
             Rol rol = rolImp.buscarRolporId(persona.getIdRolDto());
 
-            if(null != login && null != rol && persona.getIdPersonaDto() == null){
+            if (null != login && null != rol && persona.getIdPersonaDto() == null) {
 
-                personaLocal = personaRepository.save(mappingObjectosPersona.transformDtoIntoModel(persona,login,rol));
+                personaLocal = personaRepository.save(mappingObjectosPersona.transformDtoIntoModel(persona, login, rol));
                 personaDto = mappingObjectosPersona.transformModelIntoDtoResponse(personaLocal);
 
-            }else{
+            } else {
                 throw new NoGuardarException(Constant.ERROR_GUARDAR);
             }
 
-        }catch (NoGuardarException ex){
+        } catch (NoGuardarException ex) {
             ex.printStackTrace();
             throw new NoGuardarException(ex.getMessage());
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }
         return personaDto;
     }
-
-
-
-
 
 
 }

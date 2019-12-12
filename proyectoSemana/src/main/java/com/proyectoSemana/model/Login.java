@@ -16,10 +16,8 @@ public class Login {
     @Email
     private String email;
 
-    @Column(name = "password",nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
-
-
 
 
     public Long getId() {

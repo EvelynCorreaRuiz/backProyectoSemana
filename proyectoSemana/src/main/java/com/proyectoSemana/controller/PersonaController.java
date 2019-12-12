@@ -21,7 +21,6 @@ public class PersonaController {
         ResponseEntity<Object> rs = null;
         try {
             rs = new ResponseEntity<Object>(personaImp.guardarPersona(reqPersonaDto), HttpStatus.OK);
-
         }catch (NoGuardarException ex){
             ex.printStackTrace();
             rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE);

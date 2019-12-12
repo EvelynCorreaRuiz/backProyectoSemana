@@ -2,7 +2,7 @@
 package com.proyectoSemana.exception;
 
 public class NoValidarSesionException extends Exception {
-    public NoValidarSesionException(String message){
+    public NoValidarSesionException(String message) {
         super(message);
     }
 }

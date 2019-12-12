@@ -17,17 +17,17 @@ public class RolController {
     private RolImp rolImp;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Object> guardarRol(@RequestBody ReqRolDto reqRolDto){
+    public ResponseEntity<Object> guardarRol(@RequestBody ReqRolDto reqRolDto) {
         ResponseEntity<Object> rs = null;
         try {
             rs = new ResponseEntity<Object>(rolImp.guardarRol(reqRolDto), HttpStatus.OK);
-        }catch (NoGuardarException ex){
+        } catch (NoGuardarException ex) {
             ex.printStackTrace();
             rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return  rs;
+        return rs;
     }
 }
