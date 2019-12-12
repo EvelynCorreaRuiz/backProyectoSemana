@@ -11,25 +11,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-// anotacion para definir rest y el controlador
 
-@CrossOrigin(origins = "*") //anotacion para permitir peticiones desde un framework angular y no ser rechazado por cors
-@RestController //incluye controller y response body para retornar un objeto
-@RequestMapping("/api/v1/logins") //url de los servicios api/v1 y en plural
+@CrossOrigin(origins = "*")
+@RestController
+@RequestMapping("/api/v1/logins")
 public class LoginController {
 
     @Autowired
     private LoginImp loginImp;
-    //Leer modelo de madurez
-    // https://waltermontes.wordpress.com/2014/02/21/modelo-de-madurez-de-richardson-rest/
 
-
-    //este servicio recibira un post
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Object> guardarLogin(@RequestBody ReqLoginDto loginDto){
         ResponseEntity<Object> rs = null;
         try {
-            //https://developer.mozilla.org/es/docs/Web/HTTP/Status codigos status
             rs = new ResponseEntity<Object>(loginImp.guardarLogin(loginDto), HttpStatus.OK) ;
         }catch (NoGuardarException ex){
             rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE) ;
@@ -40,7 +34,6 @@ public class LoginController {
         return  rs;
     }
 
-    //este servicio recibira un post
     @RequestMapping(value = "/sessions",method = RequestMethod.POST)
     public ResponseEntity<Object> validarSession(@RequestBody ReqLoginDto loginDto){
         ResponseEntity<Object> rs = null;
@@ -56,7 +49,6 @@ public class LoginController {
         return  rs;
     }
 
-    //este servicio recibira un get por path variable
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
     public ResponseEntity<Object> buscarPorId(@PathVariable Long id){
         ResponseEntity<Object> rs = null;

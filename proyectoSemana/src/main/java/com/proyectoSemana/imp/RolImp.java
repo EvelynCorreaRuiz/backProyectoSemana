@@ -12,11 +12,6 @@ import com.proyectoSemana.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * Sebastian Gonzalez
- * sebastian_gonza_@hotmail.com
- */
-
 @Service
 public class RolImp implements IRolService {
 
@@ -26,18 +21,11 @@ public class RolImp implements IRolService {
     @Autowired
     private MappingObjetosRol mappingObjetosRol;
 
-    /**
-     * Metodo para guardar rol
-     * @param reqRolDto
-     * @return
-     * @throws Exception
-     */
     @Override
     public ResponseRolDto guardarRol(ReqRolDto reqRolDto) throws Exception {
         ResponseRolDto responseRolDto =  null;
         try {
                 if(null != reqRolDto.getTipoRolDto() && null != reqRolDto){
-                    //response un metodo con el objeto transformado, lo guarda y lo vuelve a transformar para asignarlo y enviarlo como respuesta
                     responseRolDto = mappingObjetosRol.transformModelToDto(rolRepository.save(mappingObjetosRol.transformDtoIntoModel(reqRolDto)));
                 }else{
                     throw new NoGuardarException(Constant.ERROR_GUARDAR);
@@ -54,12 +42,6 @@ public class RolImp implements IRolService {
         return responseRolDto;
     }
 
-    /**
-     * Metodo para buscar Rol por id
-     * @param id
-     * @return
-     * @throws Exception
-     */
     @Override
     public Rol buscarRolporId(Long id) throws Exception {
         Rol rol =  null;

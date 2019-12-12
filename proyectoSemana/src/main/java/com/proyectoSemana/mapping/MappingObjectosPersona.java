@@ -9,12 +9,6 @@ import com.proyectoSemana.model.Rol;
 import com.proyectoSemana.util.Constant;
 import org.springframework.stereotype.Service;
 
-/**
- * Sebastian Gonzalez
- * sebastian_gonza_@hotmail.com
- */
-
-//Clase encargada de transformar objetos
 @Service
 public class MappingObjectosPersona {
 

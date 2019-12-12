@@ -21,19 +21,6 @@ public class EncryptPasswordService{
         String encryptedText = encryptor.encrypt(textToEncrypt);
         System.out.println("Encrypted text: \"" + encryptedText + "\"");
 
-
-        /*
-        // Could reuse encryptor but wanted to show reconstructing TextEncryptor
-        TextEncryptor decryptor = Encryptors.text(password, salt);
-        String decryptedText = decryptor.decrypt(textToEncrypt);
-        System.out.println("Decrypted text: \"" + decryptedText + "\"");
-
-        if(textToEncrypt.equals(decryptedText)) {
-            System.out.println("Success: decrypted text matches");
-        } else {
-            System.out.println("Failed: decrypted text does not match");
-        }
-           */
         return encryptedText;
     }
 

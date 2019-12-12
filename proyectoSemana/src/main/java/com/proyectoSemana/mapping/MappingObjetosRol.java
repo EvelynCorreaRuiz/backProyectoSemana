@@ -8,24 +8,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-/**
- * Sebastian Gonzalez
- * sebastian_gonza_@hotmail.com
- */
-
 @Service
 public class MappingObjetosRol {
 
 
-    /**
-     * Transforma objeto de reqRolDto
-     * @param reqRolDto
-     * @return
-     * @throws Exception
-     */
-    //clase encargada de transformar un objeto de tipo ReqDto a Rol
     public Rol transformDtoIntoModel(ReqRolDto reqRolDto ) throws Exception {
-        //objeto a guardar en la base de datos
+
         Rol rolLocal = null;
         try {
             if(null != reqRolDto){
@@ -41,15 +29,7 @@ public class MappingObjetosRol {
         return rolLocal;
     }
 
-    /**
-     * Transforma Objeto model a dto
-     * @param rol
-     * @return
-     * @throws Exception
-     */
-    //clase encargada de transformar un objeto de tipo ReqDto a Rol
     public ResponseRolDto transformModelToDto(Rol rol ) throws Exception {
-        //objeto a guardar en la base de datos
         ResponseRolDto rolLocal = null;
         try {
 
@@ -65,15 +45,7 @@ public class MappingObjetosRol {
         return rolLocal;
     }
 
-    /**
-     *
-     * @param rolOptional
-     * @return
-     * @throws Exception
-     */
-    //clase encargada de transformar un objeto de tipo ReqDto a Rol
     public Rol transformOptionalToModel(Optional<Rol> rolOptional ) throws Exception {
-        //objeto a guardar en la base de datos
         Rol rolLocal = null;
         try {
 

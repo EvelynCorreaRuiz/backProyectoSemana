@@ -2,11 +2,6 @@ package com.proyectoSemana.model;
 
 import javax.persistence.*;
 
-/**
- * Sebastian Gonzalez
- * sebastian_gonza_@hotmail.com
- */
-
 @Entity
 @Table(name = "Rol")
 public class Rol {

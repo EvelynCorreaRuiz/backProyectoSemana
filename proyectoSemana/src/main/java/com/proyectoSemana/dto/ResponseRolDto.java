@@ -1,10 +1,5 @@
 package com.proyectoSemana.dto;
 
-/**
- * Sebastian Gonzalez
- * sebastian_gonza_@hotmail.com
- */
-
 public class ResponseRolDto {
 
     private Long idDto;

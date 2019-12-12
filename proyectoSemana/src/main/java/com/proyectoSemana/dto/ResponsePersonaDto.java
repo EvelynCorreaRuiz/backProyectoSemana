@@ -2,11 +2,6 @@ package com.proyectoSemana.dto;
 
 import java.util.Date;
 
-/**
- * Sebastian Gonzalez
- * sebastian_gonza_@hotmail.com
- */
-
 public class ResponsePersonaDto {
 
     private String nombrePersonaDto;

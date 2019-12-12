@@ -1,11 +1,5 @@
 package com.proyectoSemana.dto;
 
-/**
- * Sebastian Gonzalez
- * sebastian_gonza_@hotmail.com
- */
-
-
 public class ResponseLoginDto {
 
     private String emailDto;

@@ -20,21 +20,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-//Un servicio que sera llamado desde el controller
-@Service //service a lo que se utilizara como logica de negocio
+
+@Service
 public class LoginImp implements ILoginService {
 
-    // crear una instancia o Injeccion de depencia de interfaz
     @Autowired
     private LoginRepository loginRepository;
 
-    // servicio que se encarga de encryptar la password y guardar en la base de datos
     @Autowired
     private IPbkdf2EncryptService iPbkdf2EncryptService;
 
-    //injeccion a la clase / instancia
     @Autowired
-    private MappingObjetosLogin transformarObjetos;//Clase que se encarga de transformar los objetos
+    private MappingObjetosLogin transformarObjetos;
 
     @Override
     public ResponseLoginDto guardarLogin(ReqLoginDto reqLoginDto) throws Exception {
@@ -45,23 +42,18 @@ public class LoginImp implements ILoginService {
              if(null == validateEmail && reqLoginDto.getPasswordDto().length()>Constant.ZERO){
                  login = new Login();
                  login.setEmail(reqLoginDto.getEmailDto());
-                 //se encarga de encriptar la password para posteriormente ir a guardar a la base de datos esa password encriptada
                  login.setPassword(iPbkdf2EncryptService.generarHashPassword(reqLoginDto.getPasswordDto()));
 
-                 //transforma objetos para responder un dto
                  responseLoginDto = transformarObjetos.transformarLoginToResponseDto(loginRepository.save(login));
              }else{
-                 //en caso que no cumpla alguna validacion se envia como mensaje
                 throw new NoGuardarException(Constant.ERROR_GUARDAR);
              }
 
        }catch (NoGuardarException ex){
             ex.printStackTrace();
-            //enviar excepcion al controlador
             throw new NoGuardarException(ex.getMessage());
         }catch (Exception ex){
             ex.printStackTrace();
-            //enviar excepcion al controlador y carga el mensaje
             throw new Exception(Constant.ERROR_SISTEMA);
        }
         return responseLoginDto;
@@ -90,11 +82,10 @@ public class LoginImp implements ILoginService {
 
     @Override
     public Login buscarPorId(Long id) throws Exception {
-        //Clase a la que se asigara el objeto
         Login loginLocal;
         try{
 
-            loginLocal = transformarObjetos.transformarOptionaLogin(loginRepository.findById(id));//metodo que se encarga de transformar el objeto que retorna crud repository
+            loginLocal = transformarObjetos.transformarOptionaLogin(loginRepository.findById(id));
             if(null == loginLocal){
                 throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
             }
@@ -105,18 +96,11 @@ public class LoginImp implements ILoginService {
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }
-        //objeto a retornar
         return loginLocal;
     }
 
-    /**
-     * Metodo que entrega la lista de logins
-     * @return
-     * @throws Exception
-     */
     @Override
     public List<Login> listarLogin() throws Exception {
-        //Login retornara vacio en caso de no ser encontrado
         List<Login> listLogin = new ArrayList<>();
         try {
              listLogin = loginRepository.findAll();
@@ -127,17 +111,11 @@ public class LoginImp implements ILoginService {
         return listLogin;
     }
 
-    /**
-     * Metodo para eliminar registro
-     * @param id
-     * @return
-     * @throws Exception
-     */
     @Override
     public boolean eliminarLogin(Long id) throws Exception {
         try{
 
-            Login loginLocal = transformarObjetos.transformarOptionaLogin(loginRepository.findById(id));//metodo que se encarga de transformar el objeto que retorna crud repository
+            Login loginLocal = transformarObjetos.transformarOptionaLogin(loginRepository.findById(id));
             if(null == loginLocal){
                 throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
             }else{
@@ -153,13 +131,6 @@ public class LoginImp implements ILoginService {
         }
     }
 
-    /**
-     * Metodo para actualizar login
-     * @param id
-     * @param reqLoginDto
-     * @return
-     * @throws Exception
-     */
     @Override
     public ResponseLoginDto actualizarLogin(Long id, ReqLoginDto reqLoginDto) throws Exception {
         ResponseLoginDto responseLoginDto = null;

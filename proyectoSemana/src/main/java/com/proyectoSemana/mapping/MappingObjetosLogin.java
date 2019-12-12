@@ -7,20 +7,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-/**
- * Sebastian Gonzalez
- * sebastian_gonza_@hotmail.com
- */
 
 @Service
 public class MappingObjetosLogin {
 
-    /**
-     * Transforma objeto de tipo optional
-     * @param loginOptional
-     * @return
-     * @throws Exception
-     */
     public Login transformarOptionaLogin(Optional<Login> loginOptional) throws Exception {
         Login login = null;
         try {
@@ -37,12 +27,6 @@ public class MappingObjetosLogin {
         return login;
     }
 
-    /**
-     * Transforma objeto de tipo login
-     * @param login
-     * @return
-     * @throws Exception
-     */
     public ResponseLoginDto transformarLoginToResponseDto(Login login) throws Exception {
         ResponseLoginDto responseLoginDto = null;
         try {

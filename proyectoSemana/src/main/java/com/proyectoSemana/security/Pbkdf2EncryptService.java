@@ -12,7 +12,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 
-//Clase encargada de seguritizar la password
 @Service
 public class Pbkdf2EncryptService implements IPbkdf2EncryptService {
 
@@ -52,14 +51,6 @@ public class Pbkdf2EncryptService implements IPbkdf2EncryptService {
         }
     }
 
-    /**
-     * Validar Password
-     * @param originalPassword
-     * @param storedPassword
-     * @return
-     * @throws NoSuchAlgorithmException
-     * @throws InvalidKeySpecException
-     */
     public boolean validarPassword(String originalPassword, String storedPassword) throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         String[] parts = storedPassword.split(":");

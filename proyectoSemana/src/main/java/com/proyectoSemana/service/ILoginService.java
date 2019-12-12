@@ -6,7 +6,6 @@ import com.proyectoSemana.model.Login;
 
 import java.util.List;
 
-//Interface con las funciones de metodos a utilizar
 public interface ILoginService {
 
     ResponseLoginDto guardarLogin(ReqLoginDto reqLoginDto) throws Exception;
