@@ -40,9 +40,7 @@ public class PersonaImp implements IPersonaService {
             Rol rol = rolImp.buscarRolporId(persona.getIdRolDto());
 
             if(null != login && null != rol && persona.getIdPersonaDto() == null){
-                persona.setFechaCreacionDto(new Date());
-                persona.setActiveDto((byte)1);
-                persona.setFechaActualizacionDto(null);
+
                 personaLocal = personaRepository.save(mappingObjectosPersona.transformDtoIntoModel(persona,login,rol));
                 personaDto = mappingObjectosPersona.transformModelIntoDtoResponse(personaLocal);
 
