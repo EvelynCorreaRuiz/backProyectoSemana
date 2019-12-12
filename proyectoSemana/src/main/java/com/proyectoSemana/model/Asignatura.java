@@ -3,19 +3,16 @@ package com.proyectoSemana.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Asignatura")
+@Table(name = "asignatura")
 public class Asignatura {
     @Id
-    @Column(name = "id_asignatura")
+    @Column(name = "idasignatura")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAsignatura;
 
-    @Column(name = "NameAsignatura", nullable = false, unique = true)
+    @Column(name = "nombre_asignatura", nullable = false, unique = true)
     private String cursoName;
-
-    public Asignatura() {
-    }
-
+    
     public Long getIdAsignatura() {
         return idAsignatura;
     }
@@ -32,11 +29,4 @@ public class Asignatura {
         this.cursoName = cursoName;
     }
 
-    @Override
-    public String toString() {
-        return "Asignatura{" +
-                "idAsignatura=" + idAsignatura +
-                ", cursoName='" + cursoName + '\'' +
-                '}';
-    }
 }
