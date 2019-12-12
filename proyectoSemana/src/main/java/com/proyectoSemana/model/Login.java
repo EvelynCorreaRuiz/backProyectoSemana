@@ -4,11 +4,11 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 
 @Entity
-@Table(name = "Login")
+@Table(name = "login")
 public class Login {
 
     @Id
-    @Column(name = "id_login")
+    @Column(name = "idlogin")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

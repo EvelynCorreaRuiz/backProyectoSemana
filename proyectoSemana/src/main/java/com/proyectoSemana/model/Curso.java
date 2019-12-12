@@ -3,15 +3,15 @@ package com.proyectoSemana.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Curso")
+@Table(name = "curso")
 public class Curso {
     @Id
     @Column(name = "id_curso")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCurso;
 
-    @Column(name = "NameCurso", nullable = false, unique = true)
-    private String cursoName;
+    @Column(name = "nombre_curso", nullable = false, unique = true)
+    private String nombreCurso;
 
     public Long getIdCurso() {
         return idCurso;
@@ -21,22 +21,12 @@ public class Curso {
         this.idCurso = idCurso;
     }
 
-    public String getCursoName() {
-        return cursoName;
+    public String getNombreCurso() {
+        return nombreCurso;
     }
 
-    public void setCursoName(String cursoName) {
-        this.cursoName = cursoName;
+    public void setNombreCurso(String nombreCurso) {
+        this.nombreCurso = nombreCurso;
     }
 
-    public Curso() {
-    }
-
-    @Override
-    public String toString() {
-        return "Curso{" +
-                "idCurso=" + idCurso +
-                ", cursoName='" + cursoName + '\'' +
-                '}';
-    }
 }
