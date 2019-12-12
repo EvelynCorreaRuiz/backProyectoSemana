@@ -21,6 +21,10 @@ public class MappingObjectosPersona {
             personaLocal.setRol(rol);
             personaLocal.setNombrePersona(persona.getNombrePersonaDto().toUpperCase());
             personaLocal.setApellidoPersona(persona.getApellidoPersonaDto().toUpperCase());
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8d6b6062a66b0a985135bdb09e31cad1dbf6d149
             personaLocal.setRutPersona(persona.getRutPersonaDto());
 
         } catch (Exception ex) {
