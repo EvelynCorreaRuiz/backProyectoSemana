@@ -3,40 +3,40 @@ package com.proyectoSemana.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "course")
-public class Course {
+@Table(name = "curso")
+public class Curso {
     @Id
-    @Column(name = "id_coruse")
+    @Column(name = "id_curso")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCoruse;
+    private Long idCurso;
 
-    @Column(name = "NameCorse", nullable = false, unique = true)
-    private String courseName;
+    @Column(name = "NameCurso", nullable = false, unique = true)
+    private String cursoName;
 
-    public Long getIdCoruse() {
-        return idCoruse;
+    public Long getIdCurso() {
+        return idCurso;
     }
 
-    public void setIdCoruse(Long idCoruse) {
-        this.idCoruse = idCoruse;
+    public void setIdCurso(Long idCurso) {
+        this.idCurso = idCurso;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public String getCursoName() {
+        return cursoName;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public void setCursoName(String cursoName) {
+        this.cursoName = cursoName;
     }
 
-    public Course() {
+    public Curso() {
     }
 
     @Override
     public String toString() {
-        return "Course{" +
-                "idCoruse=" + idCoruse +
-                ", courseName='" + courseName + '\'' +
+        return "Curso{" +
+                "idCurso=" + idCurso +
+                ", cursoName='" + cursoName + '\'' +
                 '}';
     }
 }
