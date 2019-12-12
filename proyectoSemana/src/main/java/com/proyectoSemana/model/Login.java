@@ -3,21 +3,31 @@ package com.proyectoSemana.model;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 
+/**
+ * Sebastian Gonzalez
+ * sebastian_gonza_@hotmail.com
+ */
+
+// Anotacion de persistencia a jpa, declara que es una entidad
 @Entity
-@Table(name = "Login")
+@Table(name = "Login") //nombre de la tabla
 public class Login {
 
+    //primary key
     @Id
     @Column(name = "id_login")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Email
     @Column(name = "email", unique = true, nullable = false)
+    @Email
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password",nullable = false)
     private String password;
+
+
+
 
     public Long getId() {
         return id;

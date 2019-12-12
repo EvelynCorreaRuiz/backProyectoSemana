@@ -2,6 +2,11 @@ package com.proyectoSemana.model;
 
 import javax.persistence.*;
 
+/**
+ * Sebastian Gonzalez
+ * sebastian_gonza_@hotmail.com
+ */
+
 @Entity
 @Table(name = "Rol")
 public class Rol {
@@ -11,8 +16,9 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "rol_type", unique = true, nullable = false)
-    private String rolType;
+    @Column(name = "tipo_rol", unique = true, nullable = false)
+    private String tipo;
+
 
     public Long getId() {
         return id;
@@ -22,11 +28,12 @@ public class Rol {
         this.id = id;
     }
 
-    public String getRolType() {
-        return rolType;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setRolType(String rolType) {
-        this.rolType = rolType;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
+
 }
