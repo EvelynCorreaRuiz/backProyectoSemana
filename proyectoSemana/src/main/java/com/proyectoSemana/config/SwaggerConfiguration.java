@@ -33,7 +33,7 @@ public class SwaggerConfiguration {
                 "API REST SWAGGER",
                 "v1.0",
                 " ",
-                new Contact("X Force","", "joseluisj99@gmail.com"),
+                new Contact("X Force", "", "joseluisj99@gmail.com"),
                 "License of API", "API license URL", Collections.emptyList());
     }
 

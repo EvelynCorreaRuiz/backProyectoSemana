@@ -6,12 +6,12 @@ import org.springframework.security.crypto.keygen.KeyGenerators;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EncryptPasswordService{
+public class EncryptPasswordService {
 
     final static String password = "I AM SHERLOCKED";
     final static String salt = KeyGenerators.string().generateKey();
 
-    public String encrypt(String passwordUser){
+    public String encrypt(String passwordUser) {
         TextEncryptor encryptor = Encryptors.text(password, salt);
         System.out.println("Salt: \"" + salt + "\"");
 

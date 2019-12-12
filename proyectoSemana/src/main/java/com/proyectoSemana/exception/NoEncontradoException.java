@@ -2,7 +2,7 @@
 package com.proyectoSemana.exception;
 
 public class NoEncontradoException extends Exception {
-    public NoEncontradoException(String message){
+    public NoEncontradoException(String message) {
         super(message);
     }
 }

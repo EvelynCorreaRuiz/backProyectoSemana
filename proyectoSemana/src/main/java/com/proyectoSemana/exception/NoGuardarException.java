@@ -3,7 +3,7 @@ package com.proyectoSemana.exception;
 
 public class NoGuardarException extends Exception {
 
-    public NoGuardarException(String message){
+    public NoGuardarException(String message) {
         super(message);
     }
 
