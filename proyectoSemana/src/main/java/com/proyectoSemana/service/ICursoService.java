@@ -1,4 +1,4 @@
 package com.proyectoSemana.service;
 
-public interface ICourseServices {
+public interface ICursoService  {
 }
