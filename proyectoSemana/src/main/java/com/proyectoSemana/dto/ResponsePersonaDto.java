@@ -7,7 +7,6 @@ public class ResponsePersonaDto {
     private String nombrePersonaDto;
     private String apellidoPersonaDto;
     private String rutPersonaDto;
-    private Date fechaCreacionPersonaDto;
     private String tipoRolDto;
     private String emailLoginDto;
 
@@ -33,14 +32,6 @@ public class ResponsePersonaDto {
 
     public void setRutPersonaDto(String rutPersonaDto) {
         this.rutPersonaDto = rutPersonaDto;
-    }
-
-    public Date getFechaCreacionPersonaDto() {
-        return fechaCreacionPersonaDto;
-    }
-
-    public void setFechaCreacionPersonaDto(Date fechaCreacionPersonaDto) {
-        this.fechaCreacionPersonaDto = fechaCreacionPersonaDto;
     }
 
     public String getTipoRolDto() {

@@ -1,5 +1,4 @@
 package com.proyectoSemana.dto;
-import java.util.Date;
 
 
 public class ReqPersonaDto {
@@ -10,9 +9,7 @@ public class ReqPersonaDto {
     private String nombrePersonaDto;
     private String apellidoPersonaDto;
     private String rutPersonaDto;
-    private Date fechaCreacionDto;
-    private Date fechaActualizacionDto;
-    private byte activeDto;
+
 
     public Long getIdPersonaDto() {
         return idPersonaDto;
@@ -62,27 +59,4 @@ public class ReqPersonaDto {
         this.rutPersonaDto = rutPersonaDto;
     }
 
-    public Date getFechaCreacionDto() {
-        return fechaCreacionDto;
-    }
-
-    public void setFechaCreacionDto(Date fechaCreacionDto) {
-        this.fechaCreacionDto = fechaCreacionDto;
-    }
-
-    public Date getFechaActualizacionDto() {
-        return fechaActualizacionDto;
-    }
-
-    public void setFechaActualizacionDto(Date fechaActualizacionDto) {
-        this.fechaActualizacionDto = fechaActualizacionDto;
-    }
-
-    public byte getActiveDto() {
-        return activeDto;
-    }
-
-    public void setActiveDto(byte activeDto) {
-        this.activeDto = activeDto;
-    }
 }
