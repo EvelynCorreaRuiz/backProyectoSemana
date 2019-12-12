@@ -19,11 +19,9 @@ public class MappingObjectosPersona {
             personaLocal.setIdPersona(persona.getIdPersonaDto());
             personaLocal.setLogin(login);
             personaLocal.setRol(rol);
-            personaLocal.setActive(persona.getActiveDto());
             personaLocal.setNombrePersona(persona.getNombrePersonaDto().toUpperCase());
             personaLocal.setApellidoPersona(persona.getApellidoPersonaDto().toUpperCase());
-            personaLocal.setFechaCreacion(persona.getFechaCreacionDto());
-            personaLocal.setFechaActualizacion(persona.getFechaActualizacionDto());
+
             personaLocal.setRutPersona(persona.getRutPersonaDto());
 
         }catch (Exception ex){
@@ -38,7 +36,6 @@ public class MappingObjectosPersona {
         try {
             personaDto = new ResponsePersonaDto();
             personaDto.setEmailLoginDto(personaLocal.getLogin().getEmail());
-            personaDto.setFechaCreacionPersonaDto(personaLocal.getFechaCreacion());
             personaDto.setNombrePersonaDto(personaLocal.getNombrePersona());
             personaDto.setTipoRolDto(personaLocal.getRol().getTipo());
             personaDto.setApellidoPersonaDto(personaLocal.getApellidoPersona());
