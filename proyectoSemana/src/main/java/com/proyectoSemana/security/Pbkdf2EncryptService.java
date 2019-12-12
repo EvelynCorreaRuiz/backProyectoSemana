@@ -1,6 +1,7 @@
 package com.proyectoSemana.security;
 
 import com.proyectoSemana.service.IPbkdf2EncryptService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -18,13 +19,6 @@ public class Pbkdf2EncryptService implements IPbkdf2EncryptService {
     @Value("${secret.key}")
     private String key;
 
-    /**
-     * Generar Password
-     * @param password
-     * @return
-     * @throws NoSuchAlgorithmException
-     * @throws InvalidKeySpecException
-     */
     public String generarHashPassword(String password) throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         int iterations = 1000;

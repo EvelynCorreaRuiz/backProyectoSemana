@@ -19,11 +19,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Sebastian Gonzalez
- * sebastian_gonza_@hotmail.com
- */
-
 
 //Un servicio que sera llamado desde el controller
 @Service //service a lo que se utilizara como logica de negocio
@@ -41,12 +36,6 @@ public class LoginImp implements ILoginService {
     @Autowired
     private MappingObjetosLogin transformarObjetos;//Clase que se encarga de transformar los objetos
 
-    /**
-     * Metodo que se encarga de guardar un login
-     * @param reqLoginDto
-     * @return
-     * @throws Exception
-     */
     @Override
     public ResponseLoginDto guardarLogin(ReqLoginDto reqLoginDto) throws Exception {
         ResponseLoginDto responseLoginDto;
@@ -78,11 +67,6 @@ public class LoginImp implements ILoginService {
         return responseLoginDto;
     }
 
-    /**
-     * Servicio para validar la sesion
-     * @param reqLoginDto
-     * @return
-     */
     @Override
     public boolean validarSession(ReqLoginDto reqLoginDto) throws Exception {
         Login loginLocal;
@@ -104,11 +88,6 @@ public class LoginImp implements ILoginService {
         }
     }
 
-    /**
-     * Servicio para entregar un login por id
-     * @param id
-     * @return
-     */
     @Override
     public Login buscarPorId(Long id) throws Exception {
         //Clase a la que se asigara el objeto
