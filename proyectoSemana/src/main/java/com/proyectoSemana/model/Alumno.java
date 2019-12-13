@@ -27,7 +27,7 @@ public class Alumno {
     private Curso curso ;
 
     @OneToOne
-    @JoinColumn(name = "idlogin")
+    @JoinColumn(name = "idlogin" )
     private Login login;
 
     public Long getId_alumno() {
