@@ -10,15 +10,15 @@ public class Nota {
 
     @ManyToOne
     @JoinColumn(name = "alumnos_idalumnos")
-    private Long idalumnos;
+    private Alumno alumno;
 
     @ManyToOne
     @JoinColumn(name = "asignaturas_idasignaturas")
-    private Long idasignaturas;
+    private Asignatura asignatura;
 
     @ManyToOne
     @JoinColumn(name = "alumnos_login_idlogin")
-    private Long idLoginAlumno;
+    private Login login;
 
     @Column(name = "notas_1")
     private double nota1;
@@ -52,28 +52,28 @@ public class Nota {
         this.idNota = idNota;
     }
 
-    public Long getIdalumnos() {
-        return idalumnos;
+    public Alumno getAlumno() {
+        return alumno;
     }
 
-    public void setIdalumnos(Long idalumnos) {
-        this.idalumnos = idalumnos;
+    public void setAlumno(Alumno alumno) {
+        this.alumno = alumno;
     }
 
-    public Long getIdasignaturas() {
-        return idasignaturas;
+    public Asignatura getAsignatura() {
+        return asignatura;
     }
 
-    public void setIdasignaturas(Long idasignaturas) {
-        this.idasignaturas = idasignaturas;
+    public void setAsignatura(Asignatura asignatura) {
+        this.asignatura = asignatura;
     }
 
-    public Long getIdLoginAlumno() {
-        return idLoginAlumno;
+    public Login getLogin() {
+        return login;
     }
 
-    public void setIdLoginAlumno(Long idLoginAlumno) {
-        this.idLoginAlumno = idLoginAlumno;
+    public void setLogin(Login login) {
+        this.login = login;
     }
 
     public double getNota1() {
@@ -136,23 +136,7 @@ public class Nota {
         return control4;
     }
 
-    @Override
-    public String toString() {
-        return "Nota{" +
-                "idNota=" + idNota +
-                ", nota1=" + nota1 +
-                ", nota2=" + nota2 +
-                ", nota3=" + nota3 +
-                ", nota4=" + nota4 +
-                ", control1=" + control1 +
-                ", control2=" + control2 +
-                ", control3=" + control3 +
-                ", control4=" + control4 +
-                '}';
-
-
-    }
-    public void setControl4(int control4) {
+    public void setControl4(double control4) {
         this.control4 = control4;
     }
 }
