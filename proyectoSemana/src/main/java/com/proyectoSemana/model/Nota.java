@@ -6,124 +6,152 @@ public class Nota {
     @Id
     @Column(name = "idnota")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Nota nota;
+    private Long idNota;
 
     @ManyToOne
     @JoinColumn(name = "alumnos_idalumnos")
-    private Alumno alumno;
+    private Long idalumnos;
 
     @ManyToOne
     @JoinColumn(name = "asignaturas_idasignaturas")
-    private Asignatura asignatura;
+    private Long idasignaturas;
 
-    @Column(name = "nota_1", nullable = false)
-    private int nota1;
+    @ManyToOne
+    @JoinColumn(name = "alumnos_login_idlogin")
+    private Long idLoginAlumno;
 
-    @Column(name = "nota_2", nullable = false)
-    private int nota2;
+    @Column(name = "notas_1")
+    private double nota1;
 
-    @Column(name = "nota_3", nullable = false)
-    private int nota3;
+    @Column(name = "notas_2")
+    private double nota2;
 
-    @Column(name = "nota_4", nullable = false)
-    private int nota4;
+    @Column(name = "notas_3")
+    private double nota3;
 
-    @Column(name = "control_1", nullable = false)
-    private int control1;
+    @Column(name = "notas_4")
+    private double nota4;
 
-    @Column(name = "control_2", nullable = false)
-    private int control2;
+    @Column(name = "control_1")
+    private double control1;
 
-    @Column(name = "control_3", nullable = false)
-    private int control3;
+    @Column(name = "control_2")
+    private double control2;
 
-    @Column(name = "control_4", nullable = false)
-    private int control4;
+    @Column(name = "control_3")
+    private double control3;
 
-    public Nota getNota() {
-        return nota;
+    @Column(name = "control_4")
+    private double control4;
+
+    public Long getIdNota() {
+        return idNota;
     }
 
-    public void setNota(Nota nota) {
-        this.nota = nota;
+    public void setIdNota(Long idNota) {
+        this.idNota = idNota;
     }
 
-    public Alumno getAlumno() {
-        return alumno;
+    public Long getIdalumnos() {
+        return idalumnos;
     }
 
-    public void setAlumno(Alumno alumno) {
-        this.alumno = alumno;
+    public void setIdalumnos(Long idalumnos) {
+        this.idalumnos = idalumnos;
     }
 
-    public Asignatura getAsignatura() {
-        return asignatura;
+    public Long getIdasignaturas() {
+        return idasignaturas;
     }
 
-    public void setAsignatura(Asignatura asignatura) {
-        this.asignatura = asignatura;
+    public void setIdasignaturas(Long idasignaturas) {
+        this.idasignaturas = idasignaturas;
     }
 
-    public int getNota1() {
+    public Long getIdLoginAlumno() {
+        return idLoginAlumno;
+    }
+
+    public void setIdLoginAlumno(Long idLoginAlumno) {
+        this.idLoginAlumno = idLoginAlumno;
+    }
+
+    public double getNota1() {
         return nota1;
     }
 
-    public void setNota1(int nota1) {
+    public void setNota1(double nota1) {
         this.nota1 = nota1;
     }
 
-    public int getNota2() {
+    public double getNota2() {
         return nota2;
     }
 
-    public void setNota2(int nota2) {
+    public void setNota2(double nota2) {
         this.nota2 = nota2;
     }
 
-    public int getNota3() {
+    public double getNota3() {
         return nota3;
     }
 
-    public void setNota3(int nota3) {
+    public void setNota3(double nota3) {
         this.nota3 = nota3;
     }
 
-    public int getNota4() {
+    public double getNota4() {
         return nota4;
     }
 
-    public void setNota4(int nota4) {
+    public void setNota4(double nota4) {
         this.nota4 = nota4;
     }
 
-    public int getControl1() {
+    public double getControl1() {
         return control1;
     }
 
-    public void setControl1(int control1) {
+    public void setControl1(double control1) {
         this.control1 = control1;
     }
 
-    public int getControl2() {
+    public double getControl2() {
         return control2;
     }
 
-    public void setControl2(int control2) {
+    public void setControl2(double control2) {
         this.control2 = control2;
     }
 
-    public int getControl3() {
+    public double getControl3() {
         return control3;
     }
 
-    public void setControl3(int control3) {
+    public void setControl3(double control3) {
         this.control3 = control3;
     }
 
-    public int getControl4() {
+    public double getControl4() {
         return control4;
     }
 
+    @Override
+    public String toString() {
+        return "Nota{" +
+                "idNota=" + idNota +
+                ", nota1=" + nota1 +
+                ", nota2=" + nota2 +
+                ", nota3=" + nota3 +
+                ", nota4=" + nota4 +
+                ", control1=" + control1 +
+                ", control2=" + control2 +
+                ", control3=" + control3 +
+                ", control4=" + control4 +
+                '}';
+
+
+    }
     public void setControl4(int control4) {
         this.control4 = control4;
     }
