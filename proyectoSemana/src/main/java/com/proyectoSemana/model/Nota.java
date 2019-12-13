@@ -1,5 +1,7 @@
 package com.proyectoSemana.model;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import javax.persistence.*;
 
 public class Nota {
@@ -43,6 +45,12 @@ public class Nota {
 
     @Column(name = "control_4")
     private double control4;
+
+    @Column(name = "promedioNotas")
+    private double promedioNotas;
+
+    @Column(name = "promedioControles")
+    private double promedioControles;
 
     public Long getIdNota() {
         return idNota;
@@ -138,6 +146,22 @@ public class Nota {
 
     public void setControl4(double control4) {
         this.control4 = control4;
+    }
+
+    public double getPromedioNotas() {
+        return promedioNotas;
+    }
+
+    public void setPromedioNotas(double promedioNotas) {
+        this.promedioNotas = promedioNotas;
+    }
+
+    public double getPromedioControles() {
+        return promedioControles;
+    }
+
+    public void setPromedioControles(double promedioControles) {
+        this.promedioControles = promedioControles;
     }
 }
 

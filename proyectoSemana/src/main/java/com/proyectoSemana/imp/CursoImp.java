@@ -2,7 +2,6 @@ package com.proyectoSemana.imp;
 
 import com.proyectoSemana.dto.ReqCursoDto;
 import com.proyectoSemana.dto.ResponseCursoDto;
-import com.proyectoSemana.model.Curso;
 import com.proyectoSemana.repository.CursoRepository;
 import com.proyectoSemana.service.ICursoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +17,10 @@ public class CursoImp  implements ICursoService {
     @Override
     public ResponseCursoDto guardarCurso(ReqCursoDto reqCursoDto) throws Exception {
         return null;
+    }
+
+    @Override
+    public boolean validarCurso(ReqCursoDto reqCursoDto) throws Exception {
+        return false;
     }
 }
