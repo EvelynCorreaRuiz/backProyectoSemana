@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Profesor {
 
     @Id
-    @Column(name = "idrofesor")
+    @Column(name = "id_profesor")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_profesor;
 
@@ -17,16 +17,15 @@ public class Profesor {
     @Column(name = "apellido_profesor")
     private String apellidoProfesor;
 
-    @OneToOne
-    @JoinColumn(name = "idlogin")
-    private Login login;
-
-    @ManyToOne
-    @JoinColumn(name = "idcurso")
-    private Curso curso;
-
     @Column(name = "rut_profesor")
     private String rutProfesor;
+
+    @OneToOne
+    @JoinColumn(name = "id_login", updatable = false, nullable = false)
+    private Login login;
+
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Curso curso;
 
     public Long getId_profesor() {
         return id_profesor;

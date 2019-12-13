@@ -8,7 +8,7 @@ import javax.validation.constraints.Email;
 public class Login {
 
     @Id
-    @Column(name = "idlogin")
+    @Column(name = "id_login")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -18,6 +18,12 @@ public class Login {
 
     @Column(name = "password", nullable = false)
     private String password;
+
+    @OneToOne(mappedBy = "login", cascade = CascadeType.ALL)
+    private Alumno alumno;
+
+    @OneToOne(mappedBy = "login", cascade = CascadeType.ALL)
+    private Profesor profesor;
 
 
     public Long getId() {

@@ -1,6 +1,7 @@
 package com.proyectoSemana.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "curso")
@@ -12,6 +13,28 @@ public class Curso {
 
     @Column(name = "nombre_curso", nullable = false, unique = true)
     private String nombreCurso;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "curso")
+    private List<Profesor> profesorList;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "curso")
+    private List<Alumno> alumnoList;
+
+    public List<Profesor> getProfesorList() {
+        return profesorList;
+    }
+
+    public void setProfesorList(List<Profesor> profesorList) {
+        this.profesorList = profesorList;
+    }
+
+    public List<Alumno> getAlumnoList() {
+        return alumnoList;
+    }
+
+    public void setAlumnoList(List<Alumno> alumnoList) {
+        this.alumnoList = alumnoList;
+    }
 
     public Long getIdCurso() {
         return idCurso;
