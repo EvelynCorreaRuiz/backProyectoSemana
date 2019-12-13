@@ -1,5 +1,7 @@
 package com.proyectoSemana.model;
 
+import sun.rmi.runtime.Log;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,11 +24,11 @@ public class Alumno {
 
     @ManyToOne
     @JoinColumn(name = "idcurso")
-    private Long id_curso;
+    private Curso curso ;
 
     @OneToOne
     @JoinColumn(name = "idlogin")
-    private Long id_login;
+    private Login login;
 
     public Long getId_alumno() {
         return id_alumno;
@@ -60,19 +62,19 @@ public class Alumno {
         this.rut = rut;
     }
 
-    public Long getId_curso() {
-        return id_curso;
+    public Curso getCurso() {
+        return curso;
     }
 
-    public void setId_curso(Long id_curso) {
-        this.id_curso = id_curso;
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 
-    public Long getId_login() {
-        return id_login;
+    public Login getLogin() {
+        return login;
     }
 
-    public void setId_login(Long id_login) {
-        this.id_login = id_login;
+    public void setLogin(Login login) {
+        this.login = login;
     }
 }

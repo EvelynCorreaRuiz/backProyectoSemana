@@ -19,11 +19,11 @@ public class Profesor {
 
     @OneToOne
     @JoinColumn(name = "idlogin")
-    private Long getId_profesor;
+    private Login login;
 
     @ManyToOne
     @JoinColumn(name = "idcurso")
-    private Long getId_curso;
+    private Curso curso;
 
     @Column(name = "rut_profesor")
     private String rutProfesor;
@@ -52,27 +52,27 @@ public class Profesor {
         this.apellidoProfesor = apellidoProfesor;
     }
 
-    public Long getGetId_profesor() {
-        return getId_profesor;
-    }
-
-    public void setGetId_profesor(Long getId_profesor) {
-        this.getId_profesor = getId_profesor;
-    }
-
-    public Long getGetId_curso() {
-        return getId_curso;
-    }
-
-    public void setGetId_curso(Long getId_curso) {
-        this.getId_curso = getId_curso;
-    }
-
     public String getRutProfesor() {
         return rutProfesor;
     }
 
     public void setRutProfesor(String rutProfesor) {
         this.rutProfesor = rutProfesor;
+    }
+
+    public Login getLogin() {
+        return login;
+    }
+
+    public void setLogin(Login login) {
+        this.login = login;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 }

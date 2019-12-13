@@ -1,31 +1,49 @@
 package com.proyectoSemana.dto;
 
 public class ReqAlumnoDto {
-    private String nombre_Alumno;
-    private String apellido_Alumno;
-    private String rut_Alumno;
+    private String nombre_AlumnoDto;
+    private String apellido_AlumnoDto;
+    private String rut_AlumnoDto;
+    private Long idLoginDto;
+    private Long idCursoDto;
 
-    public String getNombre_Alumno() {
-        return nombre_Alumno;
+    public String getNombre_AlumnoDto() {
+        return nombre_AlumnoDto;
     }
 
-    public void setNombre_Alumno(String nombre_Alumno) {
-        this.nombre_Alumno = nombre_Alumno;
+    public void setNombre_AlumnoDto(String nombre_AlumnoDto) {
+        this.nombre_AlumnoDto = nombre_AlumnoDto;
     }
 
-    public String getApellido_Alumno() {
-        return apellido_Alumno;
+    public String getApellido_AlumnoDto() {
+        return apellido_AlumnoDto;
     }
 
-    public void setApellido_Alumno(String apellido_Alumno) {
-        this.apellido_Alumno = apellido_Alumno;
+    public void setApellido_AlumnoDto(String apellido_AlumnoDto) {
+        this.apellido_AlumnoDto = apellido_AlumnoDto;
     }
 
-    public String getRut_Alumno() {
-        return rut_Alumno;
+    public String getRut_AlumnoDto() {
+        return rut_AlumnoDto;
     }
 
-    public void setRut_Alumno(String rut_Alumno) {
-        this.rut_Alumno = rut_Alumno;
+    public void setRut_AlumnoDto(String rut_AlumnoDto) {
+        this.rut_AlumnoDto = rut_AlumnoDto;
+    }
+
+    public Long getIdLoginDto() {
+        return idLoginDto;
+    }
+
+    public void setIdLoginDto(Long idLoginDto) {
+        this.idLoginDto = idLoginDto;
+    }
+
+    public Long getIdCursoDto() {
+        return idCursoDto;
+    }
+
+    public void setIdCursoDto(Long idCursoDto) {
+        this.idCursoDto = idCursoDto;
     }
 }
