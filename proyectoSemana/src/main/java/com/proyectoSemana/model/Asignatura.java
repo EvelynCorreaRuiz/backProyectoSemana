@@ -1,7 +1,5 @@
 package com.proyectoSemana.model;
 
-import org.springframework.cache.interceptor.CacheAspectSupport;
-
 import javax.persistence.*;
 import java.util.List;
 

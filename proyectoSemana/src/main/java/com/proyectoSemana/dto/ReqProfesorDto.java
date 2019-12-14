@@ -1,12 +1,15 @@
 package com.proyectoSemana.dto;
 
+import com.proyectoSemana.model.Curso;
+import com.proyectoSemana.model.Login;
+
 public class ReqProfesorDto {
     private Long idProfesorDto;
     private String nombre_ProfesorDto;
     private String apellido_ProfesorDto;
     private String rut_ProfesorDto;
-    private Long idLoginDto;
-    private Long idCursoDto;
+    private Login loginDto;
+    private Curso cursoDto;
 
     public String getNombre_ProfesorDto() {return nombre_ProfesorDto;}
 
@@ -20,20 +23,20 @@ public class ReqProfesorDto {
 
     public void setRut_ProfesorDto(String rut_ProfesorDto) {this.rut_ProfesorDto = rut_ProfesorDto;}
 
-    public Long getIdLoginDto() {
-        return idLoginDto;
+    public Login getLoginDto() {
+        return loginDto;
     }
 
-    public void setIdLoginDto(Long idLoginDto) {
-        this.idLoginDto = idLoginDto;
+    public void setLoginDto(Login loginDto) {
+        this.loginDto = loginDto;
     }
 
-    public Long getIdCursoDto() {
-        return idCursoDto;
+    public Curso getCursoDto() {
+        return cursoDto;
     }
 
-    public void setIdCursoDto(Long idCursoDto) {
-        this.idCursoDto = idCursoDto;
+    public void setCursoDto(Curso cursoDto) {
+        this.cursoDto = cursoDto;
     }
 
     public Long getIdProfesorDto() {

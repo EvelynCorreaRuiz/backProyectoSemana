@@ -1,6 +1,12 @@
 package com.proyectoSemana.dto;
 
+import com.proyectoSemana.model.Alumno;
+import com.proyectoSemana.model.Asignatura;
+
 public class ReqNotaDto {
+    private Long id_notasDto;
+    private Alumno alumnoDto;
+    private Asignatura asignaturaDto;
     private int nota1Dto;
     private int nota2Dto;
     private int nota3Dto;
@@ -9,6 +15,30 @@ public class ReqNotaDto {
     private int control2Dto;
     private int control3Dto;
     private int control4Dto;
+
+    public Long getId_notasDto() {
+        return id_notasDto;
+    }
+
+    public void setId_notasDto(Long id_notasDto) {
+        this.id_notasDto = id_notasDto;
+    }
+
+    public Alumno getAlumnoDto() {
+        return alumnoDto;
+    }
+
+    public void setAlumnoDto(Alumno alumnoDto) {
+        this.alumnoDto = alumnoDto;
+    }
+
+    public Asignatura getAsignaturaDto() {
+        return asignaturaDto;
+    }
+
+    public void setAsignaturaDto(Asignatura asignaturaDto) {
+        this.asignaturaDto = asignaturaDto;
+    }
 
     public int getNota1Dto() {
         return nota1Dto;

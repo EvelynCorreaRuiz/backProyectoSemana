@@ -1,8 +1,5 @@
 package com.proyectoSemana.model;
 
-import org.aspectj.weaver.ast.Not;
-import sun.rmi.runtime.Log;
-
 import javax.persistence.*;
 import java.util.List;
 
