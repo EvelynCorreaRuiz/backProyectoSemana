@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MappingObjetosCurso {
 
-    public Curso tranformarDtoaModel(ReqCursoDto reqCursoDto, List<Alumno> alumnoList, List<Profesor> profesorList, List<AsignaturasCurso> asignaturasCursoList) throws Exception{
+    public Curso tranformarDtoaModel(ReqCursoDto reqCursoDto, List<Alumno> alumnoList, List<Profesor> profesorList, List<AsignaturaCurso> asignaturasCursoList) throws Exception{
         Curso cursoLocal = null;
         try {
             cursoLocal = new Curso();

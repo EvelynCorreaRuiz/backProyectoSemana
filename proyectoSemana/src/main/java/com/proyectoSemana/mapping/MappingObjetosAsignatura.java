@@ -3,7 +3,7 @@ package com.proyectoSemana.mapping;
 import com.proyectoSemana.dto.ReqAsignaturaDto;
 import com.proyectoSemana.dto.ResponseAsignaturaDto;
 import com.proyectoSemana.model.Asignatura;
-import com.proyectoSemana.model.AsignaturasCurso;
+import com.proyectoSemana.model.AsignaturaCurso;
 import com.proyectoSemana.model.Nota;
 import com.proyectoSemana.util.Constant;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class MappingObjetosAsignatura{
 
-    public Asignatura transformarDtoaModel(ReqAsignaturaDto reqAsignaturaDto, List<Nota> notaList, List<AsignaturasCurso> asignaturasCursoList) throws Exception {
+    public Asignatura transformarDtoaModel(ReqAsignaturaDto reqAsignaturaDto, List<Nota> notaList, List<AsignaturaCurso> asignaturasCursoList) throws Exception {
         Asignatura asignaturaLocal = null;
         try{
             asignaturaLocal = new Asignatura();

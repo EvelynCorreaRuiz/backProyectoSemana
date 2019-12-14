@@ -1,6 +1,6 @@
 package com.proyectoSemana.dto;
 
-import com.proyectoSemana.model.AsignaturasCurso;
+import com.proyectoSemana.model.AsignaturaCurso;
 import com.proyectoSemana.model.Nota;
 
 import java.util.List;
@@ -10,7 +10,7 @@ public class ReqAsignaturaDto {
     private String nombre_AsignaturaDto;
     private Long id_asignaturaDto;
     private List<Nota> notaListDto;
-    private List<AsignaturasCurso> asignaturaCursoListDto;
+    private List<AsignaturaCurso> asignaturaCursoListDto;
 
 
     public String getNombre_AsignaturaDto() {
@@ -37,11 +37,11 @@ public class ReqAsignaturaDto {
         this.notaListDto = notaListDto;
     }
 
-    public List<AsignaturasCurso> getAsignaturaCursoListDto() {
+    public List<AsignaturaCurso> getAsignaturaCursoListDto() {
         return asignaturaCursoListDto;
     }
 
-    public void setAsignaturaCursoListDto(List<AsignaturasCurso> asignaturaCursoListDto) {
+    public void setAsignaturaCursoListDto(List<AsignaturaCurso> asignaturaCursoListDto) {
         this.asignaturaCursoListDto = asignaturaCursoListDto;
     }
 }

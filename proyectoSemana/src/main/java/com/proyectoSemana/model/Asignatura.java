@@ -18,7 +18,7 @@ public class Asignatura {
     private List<Nota> notaList;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "asignatura")
-    private List<AsignaturasCurso> asignaturasCurso;
+    private List<AsignaturaCurso> asignaturasCurso;
 
     public List<Nota> getNotaList() {
         return notaList;
@@ -28,11 +28,11 @@ public class Asignatura {
         this.notaList = notaList;
     }
 
-    public List<AsignaturasCurso> getAsignaturasCurso() {
+    public List<AsignaturaCurso> getAsignaturasCurso() {
         return asignaturasCurso;
     }
 
-    public void setAsignaturasCurso(List<AsignaturasCurso> asignaturasCurso) {
+    public void setAsignaturasCurso(List<AsignaturaCurso> asignaturasCurso) {
         this.asignaturasCurso = asignaturasCurso;
     }
 
