@@ -7,16 +7,6 @@ import com.proyectoSemana.model.Profesor;
 import java.util.List;
 
 public class ReqCursoDto {
-<<<<<<< HEAD
-    private String nombreCursoDto;
-
-    public String getNombreCurso() {
-        return nombreCursoDto;
-    }
-
-    public void setNombreCurso(String nombreCurso) {
-        this.nombreCursoDto = nombreCurso;
-=======
     private Long id_cursoDto;
     private String nombreCursoDto;
     private List<Profesor> profesorListDto;
@@ -61,6 +51,6 @@ public class ReqCursoDto {
 
     public void setAsignaturaCursoListDto(List<AsignaturasCurso> asignaturaCursoListDto) {
         this.asignaturaCursoListDto = asignaturaCursoListDto;
->>>>>>> 3a41389166ef20dc3f373d9d4cd66140fb7d5a8d
+
     }
 }

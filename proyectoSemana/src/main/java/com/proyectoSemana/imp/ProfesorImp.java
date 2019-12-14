@@ -1,6 +1,7 @@
 package com.proyectoSemana.imp;
 
 import com.proyectoSemana.dto.*;
+import com.proyectoSemana.exception.NoGuardarException;
 import com.proyectoSemana.exception.NoValidarSesionException;
 import com.proyectoSemana.mapping.MappingObjetosProfesor;
 import com.proyectoSemana.model.Curso;
@@ -49,27 +50,36 @@ public class ProfesorImp implements IProfesorService {
     }
 
     @Override
-    public ResponseProfesorDto guardarProfesor(ReqProfesorDto reqProfesorDto) throws Exception {
+    public ResponseProfesorDto guardarProfesor(ReqProfesorDto reqProfesorDto, Login login, Curso curso) throws Exception {
         Profesor profesorLocal;
-        Login loginLocal;
         ResponseProfesorDto responseProfesorDtoLocal;
         try {
+            Profesor validateRut = profesorRepository.findByRut(reqProfesorDto.getRut_ProfesorDto());
+            Login validateEmail = profesorRepository.findByEmail(reqProfesorDto.getLoginDto().getEmail());
+            if (null == validateEmail && null == validateRut) {
+                profesorLocal = new Profesor();
+                profesorLocal.setApellidoProfesor(reqProfesorDto.getApellido_ProfesorDto());
+                profesorLocal.setNombreProfesor(reqProfesorDto.getNombre_ProfesorDto());
+                profesorLocal.setRutProfesor(reqProfesorDto.getRut_ProfesorDto());
+                profesorLocal.setId_profesor(reqProfesorDto.getIdProfesorDto());
+                profesorLocal.setLogin(login);
+                profesorLocal.setCurso(curso);
 
-
+                responseProfesorDtoLocal = mappingObjetosProfesor.transformarModelaDtoResponse(profesorLocal);
+            } else {
+                throw new NoGuardarException(Constant.ERROR_GUARDAR);
+            }
+        }catch (NoGuardarException ex){
+            ex.printStackTrace();
+            throw new NoGuardarException(ex.getMessage());
         }catch (Exception ex){
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }
-
-
-
-        return null;
+        return responseProfesorDtoLocal;
     }
 
-    @Override
-    public ResponseCursoDto crearCurso(ReqProfesorDto reqProfesorDto, ReqCursoDto reqCursoDto) throws Exception {
-        return null;
-    }
+
 
     @Override
     public ResponseCursoDto guardarAsignatura(ReqProfesorDto reqProfesorDto, ReqAsignaturaDto reqAsignaturaDto) throws Exception {
