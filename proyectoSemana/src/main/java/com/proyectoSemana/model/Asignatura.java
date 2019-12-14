@@ -16,11 +16,11 @@ public class Asignatura {
     @Column(name = "nombre_asignatura", nullable = false, unique = true)
     private String cursoName;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "asignaturas")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "asignatura")
     private List<Nota> notaList;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "asignaturas")
-    private AsignaturasCurso asignaturasCurso;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "asignatura")
+    private List<AsignaturasCurso> asignaturasCurso;
 
     public List<Nota> getNotaList() {
         return notaList;
@@ -30,11 +30,11 @@ public class Asignatura {
         this.notaList = notaList;
     }
 
-    public AsignaturasCurso getAsignaturasCurso() {
+    public List<AsignaturasCurso> getAsignaturasCurso() {
         return asignaturasCurso;
     }
 
-    public void setAsignaturasCurso(AsignaturasCurso asignaturasCurso) {
+    public void setAsignaturasCurso(List<AsignaturasCurso> asignaturasCurso) {
         this.asignaturasCurso = asignaturasCurso;
     }
 

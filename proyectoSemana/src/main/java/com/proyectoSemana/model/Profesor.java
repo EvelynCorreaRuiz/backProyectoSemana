@@ -11,13 +11,13 @@ public class Profesor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_profesor;
 
-    @Column(name = "nombre_profesor")
+    @Column(name = "nombre_profesor", nullable = false)
     private String nombreProfesor;
 
-    @Column(name = "apellido_profesor")
+    @Column(name = "apellido_profesor", nullable = false)
     private String apellidoProfesor;
 
-    @Column(name = "rut_profesor")
+    @Column(name = "rut_profesor", nullable = false, unique = true)
     private String rutProfesor;
 
     @OneToOne

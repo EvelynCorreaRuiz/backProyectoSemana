@@ -20,21 +20,9 @@ public class Curso {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "curso")
     private List<Alumno> alumnoList;
 
-    public List<Profesor> getProfesorList() {
-        return profesorList;
-    }
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "curso")
+    private List<AsignaturasCurso> asignaturaCursoList;
 
-    public void setProfesorList(List<Profesor> profesorList) {
-        this.profesorList = profesorList;
-    }
-
-    public List<Alumno> getAlumnoList() {
-        return alumnoList;
-    }
-
-    public void setAlumnoList(List<Alumno> alumnoList) {
-        this.alumnoList = alumnoList;
-    }
 
     public Long getIdCurso() {
         return idCurso;
@@ -52,4 +40,27 @@ public class Curso {
         this.nombreCurso = nombreCurso;
     }
 
+    public List<Profesor> getProfesorList() {
+        return profesorList;
+    }
+
+    public void setProfesorList(List<Profesor> profesorList) {
+        this.profesorList = profesorList;
+    }
+
+    public List<Alumno> getAlumnoList() {
+        return alumnoList;
+    }
+
+    public void setAlumnoList(List<Alumno> alumnoList) {
+        this.alumnoList = alumnoList;
+    }
+
+    public List<AsignaturasCurso> getAsignaturaCursoList() {
+        return asignaturaCursoList;
+    }
+
+    public void setAsignaturaCursoList(List<AsignaturasCurso> asignaturaCursoList) {
+        this.asignaturaCursoList = asignaturaCursoList;
+    }
 }

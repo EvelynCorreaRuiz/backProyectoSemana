@@ -31,7 +31,7 @@ public class Alumno {
     @JoinColumn(name = "id_login", updatable = false, nullable = false)
     private Login login;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "alumnos")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "alumno")
     private List<Nota> notaList;
 
     public Long getId_alumno() {
