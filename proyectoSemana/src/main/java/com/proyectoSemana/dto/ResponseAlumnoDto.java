@@ -1,9 +1,32 @@
 package com.proyectoSemana.dto;
 
+import com.proyectoSemana.model.Curso;
+import com.proyectoSemana.model.Nota;
+
+import java.util.List;
+
 public class ResponseAlumnoDto {
     private String nombre_AlumnoDto;
     private String apellido_AlumnoDto;
     private String rut_AlumnoDto;
+    private List<Nota> notaListDto;
+    private Curso curso;
+
+    public List<Nota> getNotaListDto() {
+        return notaListDto;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
+    public void setNotaListDto(List<Nota> notaListDto) {
+        this.notaListDto = notaListDto;
+    }
 
     public String getNombre_AlumnoDto() {
         return nombre_AlumnoDto;

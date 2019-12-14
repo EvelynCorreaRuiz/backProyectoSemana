@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CursoImp  implements ICursoService {
+public class CursoImp implements ICursoService {
 
     @Autowired
     private CursoRepository cursoRepository;
@@ -23,17 +23,16 @@ public class CursoImp  implements ICursoService {
     @Autowired
     private ProfesorRepository profesorRepository;
 
-    /*@Autowired
-    private MappingObjetosCurso mappingObjetosCurso;*/
-
+    @Autowired
+    private MappingObjetosCurso mappingObjetosCurso;
 
 
     @Override
     public ResponseCursoDto guardarCurso(ReqProfesorDto reqProfesorDto, ReqCursoDto reqCursoDto) throws Exception {
-      /*  ResponseCursoDto responseCursoDtoLocal;
+        ResponseCursoDto responseCursoDtoLocal;
         Curso cursoLocal;
         try {
-            Profesor validateRut = profesorRepository.findByRut(reqProfesorDto.getRut_ProfesorDto());
+            Profesor validateRut = profesorRepository.findByRutProfesor(reqProfesorDto.getRut_ProfesorDto());
             if (validateRut != null){
                 cursoLocal = new Curso();
                 cursoLocal.setIdCurso(reqCursoDto.getId_cursoDto());
@@ -49,12 +48,27 @@ public class CursoImp  implements ICursoService {
         }catch (Exception ex){
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
-        }*/
+        }
         return null;
     }
 
     @Override
-    public boolean validarCurso(ReqCursoDto reqCursoDto) throws Exception {
+    public boolean validarCurso(ReqCursoDto reqCursoDto, ReqProfesorDto reqProfesorDto) throws Exception {
+        ResponseCursoDto responseCursoDto;
+        Curso cursoLocal = null;
+        try {
+            if (cursoLocal != null || reqCursoDto.getNombreCursoDto() != cursoLocal.getNombreCurso()) {
+                guardarCurso(reqProfesorDto, reqCursoDto);
+
+            }else{
+                throw new NoGuardarException(Constant.ERROR_VALIDAR);
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            throw new Exception((Constant.ERROR_VALIDAR));
+        }
         return false;
     }
+
 }

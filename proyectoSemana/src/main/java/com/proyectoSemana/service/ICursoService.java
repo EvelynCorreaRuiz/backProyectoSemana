@@ -6,5 +6,5 @@ import com.proyectoSemana.dto.ResponseCursoDto;
 
 public interface ICursoService  {
     ResponseCursoDto guardarCurso(ReqProfesorDto reqProfesorDto, ReqCursoDto reqCursoDto) throws Exception;
-    boolean validarCurso(ReqCursoDto reqCursoDto) throws Exception;
+    boolean validarCurso(ReqCursoDto reqCursoDto, ReqProfesorDto reqProfesorDto) throws Exception;
 }
