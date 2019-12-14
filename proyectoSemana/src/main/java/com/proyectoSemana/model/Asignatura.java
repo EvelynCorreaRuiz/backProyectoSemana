@@ -12,7 +12,7 @@ public class Asignatura {
     private Long idAsignatura;
 
     @Column(name = "nombre_asignatura", nullable = false, unique = true)
-    private String cursoName;
+    private String nombreAsignatura;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "asignatura")
     private List<Nota> notaList;
@@ -44,12 +44,13 @@ public class Asignatura {
         this.idAsignatura = idAsignatura;
     }
 
-    public String getCursoName() {
-        return cursoName;
+    public String getNombreAsignatura() {
+        return nombreAsignatura;
     }
 
-    public void setCursoName(String cursoName) {
-        this.cursoName = cursoName;
+    public void setNombreAsignatura(String nombreAsignatura) {
+        this.nombreAsignatura = nombreAsignatura;
     }
 
+    public void setAsignaturasCurso() { }
 }

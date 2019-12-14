@@ -13,12 +13,12 @@ public class ReqAsignaturaDto {
     private List<AsignaturasCurso> asignaturaCursoListDto;
 
 
-    public String getNombre_Asignatura() {
+    public String getNombre_AsignaturaDto() {
         return nombre_AsignaturaDto;
     }
 
-    public void setNombre_Asignatura(String nombre_Asignatura) {
-        this.nombre_AsignaturaDto = nombre_Asignatura;
+    public void setNombre_AsignaturaDto(String nombre_AsignaturaDto) {
+        this.nombre_AsignaturaDto = nombre_AsignaturaDto;
     }
 
     public Long getId_asignaturaDto() {
@@ -41,10 +41,7 @@ public class ReqAsignaturaDto {
         return asignaturaCursoListDto;
     }
 
-
     public void setAsignaturaCursoListDto(List<AsignaturasCurso> asignaturaCursoListDto) {
         this.asignaturaCursoListDto = asignaturaCursoListDto;
     }
-
-
 }
