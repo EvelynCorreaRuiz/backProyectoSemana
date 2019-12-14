@@ -6,14 +6,20 @@ import com.proyectoSemana.model.Nota;
 import java.util.List;
 
 public class ReqAsignaturaDto {
-    private Long id_asignaturaDto;
+
     private String nombre_AsignaturaDto;
+    private Long id_asignaturaDto;
     private List<Nota> notaListDto;
     private List<AsignaturasCurso> asignaturaCursoListDto;
 
-    public String getNombre_AsignaturaDto() {return nombre_AsignaturaDto;}
 
-    public void setNombre_AsignaturaDto(String nombre_AsignaturaDto) {this.nombre_AsignaturaDto = nombre_AsignaturaDto;}
+    public String getNombre_Asignatura() {
+        return nombre_AsignaturaDto;
+    }
+
+    public void setNombre_Asignatura(String nombre_Asignatura) {
+        this.nombre_AsignaturaDto = nombre_Asignatura;
+    }
 
     public Long getId_asignaturaDto() {
         return id_asignaturaDto;
@@ -35,7 +41,10 @@ public class ReqAsignaturaDto {
         return asignaturaCursoListDto;
     }
 
+
     public void setAsignaturaCursoListDto(List<AsignaturasCurso> asignaturaCursoListDto) {
         this.asignaturaCursoListDto = asignaturaCursoListDto;
     }
+
+
 }
