@@ -50,6 +50,19 @@ public class ProfesorImp implements IProfesorService {
 
     @Override
     public ResponseProfesorDto guardarProfesor(ReqProfesorDto reqProfesorDto) throws Exception {
+        Profesor profesorLocal;
+        Login loginLocal;
+        ResponseProfesorDto responseProfesorDtoLocal;
+        try {
+
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+            throw new Exception(Constant.ERROR_SISTEMA);
+        }
+
+
+
         return null;
     }
 
