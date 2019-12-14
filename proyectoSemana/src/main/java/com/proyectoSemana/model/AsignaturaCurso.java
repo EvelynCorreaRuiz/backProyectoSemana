@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "asignaturas_has_curso") // esta se relaciona a 2 tablas a curso y asignatura
-public class AsignaturasCurso {
+public class AsignaturaCurso {
 
     @Id
     @Column(name = "id_has_curso")
