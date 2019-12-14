@@ -1,26 +1,20 @@
 package com.proyectoSemana.model;
 
-import org.hibernate.validator.constraints.br.CPF;
-
 import javax.persistence.*;
 
+@Entity
+@Table(name = "notas")
 public class Nota {
     @Id
-    @Column(name = "idnota")
+    @Column(name = "id_nota")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idNota;
 
-    @ManyToOne
-    @JoinColumn(name = "alumnos_idalumnos")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Alumno alumno;
 
-    @ManyToOne
-    @JoinColumn(name = "asignaturas_idasignaturas")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Asignatura asignatura;
-
-    @ManyToOne
-    @JoinColumn(name = "alumnos_login_idlogin")
-    private Login login;
 
     @Column(name = "notas_1")
     private double nota1;
@@ -46,10 +40,10 @@ public class Nota {
     @Column(name = "control_4")
     private double control4;
 
-    @Column(name = "promedioNotas")
+    @Column(name = "promedio_notas")
     private double promedioNotas;
 
-    @Column(name = "promedioControles")
+    @Column(name = "promedio_control")
     private double promedioControles;
 
     public Long getIdNota() {
@@ -74,14 +68,6 @@ public class Nota {
 
     public void setAsignatura(Asignatura asignatura) {
         this.asignatura = asignatura;
-    }
-
-    public Login getLogin() {
-        return login;
-    }
-
-    public void setLogin(Login login) {
-        this.login = login;
     }
 
     public double getNota1() {

@@ -1,15 +1,14 @@
 package com.proyectoSemana.model;
 
-import sun.rmi.runtime.Log;
-
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "alumno")
+@Table(name = "alumnos")
 public class Alumno {
 
     @Id
-    @Column(name = "idalumno")
+    @Column(name = "id_alumno")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_alumno;
 
@@ -22,13 +21,15 @@ public class Alumno {
     @Column(name = "rut_alumno", nullable = false, unique = true)
     private String rut;
 
-    @ManyToOne
-    @JoinColumn(name = "idcurso")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Curso curso ;
 
     @OneToOne
-    @JoinColumn(name = "idlogin" )
+    @JoinColumn(name = "id_login", updatable = false, nullable = false)
     private Login login;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "alumno")
+    private List<Nota> notaList;
 
     public Long getId_alumno() {
         return id_alumno;
@@ -76,5 +77,13 @@ public class Alumno {
 
     public void setLogin(Login login) {
         this.login = login;
+    }
+
+    public List<Nota> getNotaList() {
+        return notaList;
+    }
+
+    public void setNotaList(List<Nota> notaList) {
+        this.notaList = notaList;
     }
 }

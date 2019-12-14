@@ -1,8 +1,17 @@
 package com.proyectoSemana.dto;
 
 public class ReqLoginDto {
+    private Long id_loginDto;
     private String emailDto;
     private String passwordDto;
+
+    public Long getId_loginDto() {
+        return id_loginDto;
+    }
+
+    public void setId_loginDto(Long id_loginDto) {
+        this.id_loginDto = id_loginDto;
+    }
 
     public String getEmailDto() {
         return emailDto;

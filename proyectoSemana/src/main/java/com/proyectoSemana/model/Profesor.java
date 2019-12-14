@@ -7,26 +7,25 @@ import javax.persistence.*;
 public class Profesor {
 
     @Id
-    @Column(name = "idrofesor")
+    @Column(name = "id_profesor")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_profesor;
 
-    @Column(name = "nombre_profesor")
+    @Column(name = "nombre_profesor", nullable = false)
     private String nombreProfesor;
 
-    @Column(name = "apellido_profesor")
+    @Column(name = "apellido_profesor", nullable = false)
     private String apellidoProfesor;
 
+    @Column(name = "rut_profesor", nullable = false, unique = true)
+    private String rutProfesor;
+
     @OneToOne
-    @JoinColumn(name = "idlogin")
+    @JoinColumn(name = "id_login", updatable = false, nullable = false)
     private Login login;
 
-    @ManyToOne
-    @JoinColumn(name = "idcurso")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Curso curso;
-
-    @Column(name = "rut_profesor")
-    private String rutProfesor;
 
     public Long getId_profesor() {
         return id_profesor;
