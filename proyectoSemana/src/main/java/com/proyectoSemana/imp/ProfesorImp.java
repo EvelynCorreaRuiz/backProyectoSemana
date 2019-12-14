@@ -1,12 +1,14 @@
 package com.proyectoSemana.imp;
 
 import com.proyectoSemana.dto.*;
+import com.proyectoSemana.exception.NoValidarSesionException;
 import com.proyectoSemana.mapping.MappingObjetosProfesor;
 import com.proyectoSemana.model.Curso;
 import com.proyectoSemana.model.Login;
 import com.proyectoSemana.model.Profesor;
 import com.proyectoSemana.repository.ProfesorRepository;
 import com.proyectoSemana.service.IProfesorService;
+import com.proyectoSemana.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -25,42 +27,29 @@ public class ProfesorImp implements IProfesorService {
     @Autowired
     private MappingObjetosProfesor mappingObjetosProfesor;
 
-
     @Override
-    public ResponseProfesorDto guardarProfesor(ReqProfesorDto reqProfesorDto) throws Exception {
+    public boolean validarProfesor(ReqProfesorDto reqProfesorDto) throws Exception {
         Profesor profesorLocal;
+        Login loginLocal;
         try {
-
-
-
-
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
-        /*
-         ResponseLoginDto responseLoginDto;
-        Login login;
-        try {
-            Login validateEmail = loginRepository.findByEmail(reqLoginDto.getEmailDto());
-            if (null == validateEmail && reqLoginDto.getPasswordDto().length() > Constant.ZERO) {
-                login = new Login();
-                login.setEmail(reqLoginDto.getEmailDto());
-                login.setPassword(iPbkdf2EncryptService.generarHashPassword(reqLoginDto.getPasswordDto()));
-
-                responseLoginDto = transformarObjetos.transformarLoginToResponseDto(loginRepository.save(login));
-            } else {
-                throw new NoGuardarException(Constant.ERROR_GUARDAR);
+            profesorLocal = profesorRepository.findByRut(reqProfesorDto.getRut_ProfesorDto());
+            loginLocal = profesorRepository.findByEmail(reqProfesorDto.getLoginDto().getEmail());
+            if (null !=profesorLocal && null != loginLocal) {
+                return true;
+            }else {
+                throw new NoValidarSesionException(Constant.ERROR_VALIDAR);
             }
-
-        } catch (NoGuardarException ex) {
+        }catch (NoValidarSesionException ex){
             ex.printStackTrace();
-            throw new NoGuardarException(ex.getMessage());
-        } catch (Exception ex) {
+            throw new NoValidarSesionException(ex.getMessage());
+        }catch (Exception ex){
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }
-        return responseLoginDto;
-         */
+    }
+
+    @Override
+    public ResponseProfesorDto guardarProfesor(ReqProfesorDto reqProfesorDto) throws Exception {
         return null;
     }
 

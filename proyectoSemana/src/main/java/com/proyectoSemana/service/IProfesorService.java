@@ -4,6 +4,7 @@ import com.proyectoSemana.dto.*;
 
 
 public interface IProfesorService {
+    boolean validarProfesor(ReqProfesorDto reqProfesorDto) throws Exception;
     ResponseProfesorDto guardarProfesor(ReqProfesorDto reqProfesorDto) throws Exception;
     ResponseCursoDto crearCurso(ReqProfesorDto reqProfesorDto, ReqCursoDto reqCursoDto) throws Exception;
     ResponseCursoDto guardarAsignatura(ReqProfesorDto reqProfesorDto, ReqAsignaturaDto reqAsignaturaDto) throws Exception;
