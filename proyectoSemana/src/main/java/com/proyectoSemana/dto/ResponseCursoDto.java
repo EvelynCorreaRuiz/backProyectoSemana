@@ -1,13 +1,13 @@
 package com.proyectoSemana.dto;
 
 public class ResponseCursoDto {
-    private String nombreCurso;
+    private String nombreCursoDto;
 
     public String getNombreCurso() {
-        return nombreCurso;
+        return nombreCursoDto;
     }
 
     public void setNombreCurso(String nombreCurso) {
-        this.nombreCurso = nombreCurso;
+        this.nombreCursoDto = nombreCurso;
     }
 }

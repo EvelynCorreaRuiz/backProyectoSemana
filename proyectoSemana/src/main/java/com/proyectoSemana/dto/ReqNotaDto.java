@@ -1,6 +1,7 @@
 package com.proyectoSemana.dto;
 
 public class ReqNotaDto {
+
     private int nota1Dto;
     private int nota2Dto;
     private int nota3Dto;
