@@ -1,6 +1,8 @@
 package com.proyectoSemana.service;
 
+import com.proyectoSemana.dto.ReqNotaDto;
+import com.proyectoSemana.model.Nota;
 
 public interface INotaService {
-    int calcularPromedio(int sumaDeNotas) throws Exception;
+    double calcularPromedioNotas(ReqNotaDto reqNotaDto) throws Exception;
 }

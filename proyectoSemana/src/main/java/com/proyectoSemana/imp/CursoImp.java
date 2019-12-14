@@ -23,14 +23,14 @@ public class CursoImp  implements ICursoService {
     @Autowired
     private ProfesorRepository profesorRepository;
 
-    @Autowired
-    private MappingObjetosCurso mappingObjetosCurso;
+    /*@Autowired
+    private MappingObjetosCurso mappingObjetosCurso;*/
 
 
 
     @Override
     public ResponseCursoDto guardarCurso(ReqProfesorDto reqProfesorDto, ReqCursoDto reqCursoDto) throws Exception {
-        ResponseCursoDto responseCursoDtoLocal;
+      /*  ResponseCursoDto responseCursoDtoLocal;
         Curso cursoLocal;
         try {
             Profesor validateRut = profesorRepository.findByRut(reqProfesorDto.getRut_ProfesorDto());
@@ -49,7 +49,7 @@ public class CursoImp  implements ICursoService {
         }catch (Exception ex){
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
-        }
+        }*/
         return null;
     }
 

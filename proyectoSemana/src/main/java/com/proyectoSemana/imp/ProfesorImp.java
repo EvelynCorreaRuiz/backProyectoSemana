@@ -30,7 +30,7 @@ public class ProfesorImp implements IProfesorService {
 
     @Override
     public boolean validarProfesor(ReqProfesorDto reqProfesorDto) throws Exception {
-        Profesor profesorLocal;
+      /*  Profesor profesorLocal;
         Login loginLocal;
         try {
             profesorLocal = profesorRepository.findByRut(reqProfesorDto.getRut_ProfesorDto());
@@ -46,12 +46,13 @@ public class ProfesorImp implements IProfesorService {
         }catch (Exception ex){
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
-        }
+        }*/
+      return false;
     }
 
     @Override
     public ResponseProfesorDto guardarProfesor(ReqProfesorDto reqProfesorDto, Login login, Curso curso) throws Exception {
-        Profesor profesorLocal;
+       /* Profesor profesorLocal;
         ResponseProfesorDto responseProfesorDtoLocal;
         try {
             Profesor validateRut = profesorRepository.findByRut(reqProfesorDto.getRut_ProfesorDto());
@@ -75,8 +76,8 @@ public class ProfesorImp implements IProfesorService {
         }catch (Exception ex){
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
-        }
-        return responseProfesorDtoLocal;
+        }*/
+        return null;
     }
 
 
