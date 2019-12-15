@@ -4,8 +4,11 @@ import com.proyectoSemana.dto.ReqCursoDto;
 import com.proyectoSemana.dto.ResponseCursoDto;
 import com.proyectoSemana.model.*;
 import com.proyectoSemana.util.Constant;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class MappingObjetosCurso {
 
     public Curso tranformarDtoaModel(ReqCursoDto reqCursoDto, List<Alumno> alumnoList, List<Profesor> profesorList, List<AsignaturaCurso> asignaturasCursoList) throws Exception{
@@ -24,7 +27,7 @@ public class MappingObjetosCurso {
         return cursoLocal;
     }
 
-    public ResponseCursoDto transformarModelaDto(Curso cursoLocal) throws Exception {
+    public ResponseCursoDto transformarModelaResponseDto(Curso cursoLocal) throws Exception {
         ResponseCursoDto responseCursoDto = null;
         try {
             responseCursoDto = new ResponseCursoDto();

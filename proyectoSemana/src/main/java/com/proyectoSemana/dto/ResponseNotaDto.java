@@ -13,10 +13,6 @@ public class ResponseNotaDto {
     private double promedioNotasDto;
     private double promedioControlesDto;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f68d0ab3782b60aa42e711e7bacd0a3ec83b5a54
     public double getNota1Dto() {
         return nota1Dto;
     }
@@ -96,10 +92,4 @@ public class ResponseNotaDto {
     public void setPromedioControlesDto(double promedioControlesDto) {
         this.promedioControlesDto = promedioControlesDto;
     }
-
-<<<<<<< HEAD
-
 }
-=======
-}
->>>>>>> f68d0ab3782b60aa42e711e7bacd0a3ec83b5a54

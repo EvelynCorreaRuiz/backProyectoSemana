@@ -4,6 +4,7 @@ import com.proyectoSemana.dto.ReqCursoDto;
 import com.proyectoSemana.dto.ReqProfesorDto;
 import com.proyectoSemana.dto.ResponseCursoDto;
 import com.proyectoSemana.exception.NoGuardarException;
+import com.proyectoSemana.exception.NoValidarSesionException;
 import com.proyectoSemana.mapping.MappingObjetosCurso;
 import com.proyectoSemana.model.Curso;
 import com.proyectoSemana.model.Profesor;
@@ -24,51 +25,54 @@ public class CursoImp implements ICursoService {
     private ProfesorRepository profesorRepository;
 
     @Autowired
-    private MappingObjetosCurso mappingObjetosCurso;
+    private MappingObjetosCurso transformarObjetosC;
 
 
     @Override
     public ResponseCursoDto guardarCurso(ReqProfesorDto reqProfesorDto, ReqCursoDto reqCursoDto) throws Exception {
-        ResponseCursoDto responseCursoDtoLocal;
+        ResponseCursoDto responseCursoDto;
         Curso cursoLocal;
         try {
             Profesor validateRut = profesorRepository.findByRutProfesor(reqProfesorDto.getRut_ProfesorDto());
-            if (validateRut != null){
+            if (validateRut != null) {
                 cursoLocal = new Curso();
                 cursoLocal.setIdCurso(reqCursoDto.getId_cursoDto());
                 cursoLocal.setNombreCurso(reqCursoDto.getNombreCursoDto());
+                cursoLocal.setAlumnoList(reqCursoDto.getAlumnoListDto());
+                cursoLocal.setProfesorList(reqCursoDto.getProfesorListDto());
+                cursoLocal.setAsignaturaCursoList(reqCursoDto.getAsignaturaCursoListDto());
 
-            }else {
+                responseCursoDto = transformarObjetosC.transformarModelaResponseDto(cursoRepository.save(cursoLocal));
+
+            } else {
                 throw new NoGuardarException(Constant.ERROR_GUARDAR);
             }
 
-        }catch (NoGuardarException ex){
+        } catch (NoGuardarException ex) {
             ex.printStackTrace();
             throw new NoGuardarException(ex.getMessage());
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }
-        return null;
+        return responseCursoDto;
     }
 
     @Override
     public boolean validarCurso(ReqCursoDto reqCursoDto, ReqProfesorDto reqProfesorDto) throws Exception {
-        ResponseCursoDto responseCursoDto;
         Curso cursoLocal = null;
         try {
             if (cursoLocal != null || reqCursoDto.getNombreCursoDto() != cursoLocal.getNombreCurso()) {
-                guardarCurso(reqProfesorDto, reqCursoDto);
-
-            }else{
-                throw new NoGuardarException(Constant.ERROR_VALIDAR);
+                return true;
+            } else {
+                throw new NoValidarSesionException(Constant.ERROR_VALIDAR);
             }
-
-        } catch (Exception ex) {
+        }catch (NoValidarSesionException ex){
             ex.printStackTrace();
-            throw new Exception((Constant.ERROR_VALIDAR));
+            throw new NoValidarSesionException(ex.getMessage());
+        }catch (Exception ex) {
+            ex.printStackTrace();
+            throw new Exception((Constant.ERROR_SESSION));
         }
-        return false;
     }
-
 }

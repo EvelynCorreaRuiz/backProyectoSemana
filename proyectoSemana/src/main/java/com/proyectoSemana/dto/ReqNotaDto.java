@@ -6,8 +6,6 @@ import com.proyectoSemana.model.Asignatura;
 public class ReqNotaDto {
 
     private Long id_notasDto;
-    private Alumno alumnoDto;
-    private Asignatura asignaturaDto;
     private double nota1Dto;
     private double nota2Dto;
     private double nota3Dto;
@@ -18,6 +16,8 @@ public class ReqNotaDto {
     private double control4Dto;
     private double promedioNota;
     private double promedioControles;
+    private Long id_alumnoDto;
+    private Long id_asignaturaDto;
 
     public Long getId_notasDto() {
         return id_notasDto;
@@ -25,22 +25,6 @@ public class ReqNotaDto {
 
     public void setId_notasDto(Long id_notasDto) {
         this.id_notasDto = id_notasDto;
-    }
-
-    public Alumno getAlumnoDto() {
-        return alumnoDto;
-    }
-
-    public void setAlumnoDto(Alumno alumnoDto) {
-        this.alumnoDto = alumnoDto;
-    }
-
-    public Asignatura getAsignaturaDto() {
-        return asignaturaDto;
-    }
-
-    public void setAsignaturaDto(Asignatura asignaturaDto) {
-        this.asignaturaDto = asignaturaDto;
     }
 
     public double getNota1Dto() {
@@ -121,5 +105,21 @@ public class ReqNotaDto {
 
     public void setPromedioControles(double promedioControles) {
         this.promedioControles = promedioControles;
+    }
+
+    public Long getId_alumnoDto() {
+        return id_alumnoDto;
+    }
+
+    public void setId_alumnoDto(Long id_alumnoDto) {
+        this.id_alumnoDto = id_alumnoDto;
+    }
+
+    public Long getId_asignaturaDto() {
+        return id_asignaturaDto;
+    }
+
+    public void setId_asignaturaDto(Long id_asignaturaDto) {
+        this.id_asignaturaDto = id_asignaturaDto;
     }
 }
