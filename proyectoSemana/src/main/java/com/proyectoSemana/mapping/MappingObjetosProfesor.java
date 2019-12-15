@@ -7,19 +7,22 @@ import com.proyectoSemana.model.Login;
 import com.proyectoSemana.model.Profesor;
 import com.proyectoSemana.util.Constant;
 
+import java.util.Optional;
+
 public class MappingObjetosProfesor {
 
-    public Profesor transformarDtoaModel(ReqProfesorDto reqProfesorDto, Login login, Curso curso) throws Exception{
+    public Profesor transformarOptionalaProfesor(Optional<Profesor> profesorOptional) throws Exception{
         Profesor profesorLocal = null;
         try {
-            profesorLocal = new Profesor();
-            profesorLocal.setApellidoProfesor(reqProfesorDto.getApellido_ProfesorDto());
-            profesorLocal.setNombreProfesor(reqProfesorDto.getNombre_ProfesorDto());
-            profesorLocal.setRutProfesor(reqProfesorDto.getRut_ProfesorDto());
-            profesorLocal.setId_profesor(reqProfesorDto.getIdProfesorDto());
-            profesorLocal.setLogin(login);
-            profesorLocal.setCurso(curso);
-
+            if (profesorOptional.isPresent()) {
+                profesorLocal = new Profesor();
+                profesorLocal.setId_profesor(profesorOptional.get().getId_profesor());
+                profesorLocal.setNombreProfesor(profesorOptional.get().getNombreProfesor());
+                profesorLocal.setApellidoProfesor(profesorOptional.get().getApellidoProfesor());
+                profesorLocal.setRutProfesor(profesorOptional.get().getRutProfesor());
+                profesorLocal.setLogin(profesorOptional.get().getLogin());
+                profesorLocal.setCurso(profesorOptional.get().getCurso());
+            }
         }catch (Exception ex){
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
@@ -41,5 +44,7 @@ public class MappingObjetosProfesor {
         }
         return profesorDto;
     }
+
+
 
 }

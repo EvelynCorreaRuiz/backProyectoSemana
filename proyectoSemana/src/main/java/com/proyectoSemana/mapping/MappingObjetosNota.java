@@ -40,6 +40,18 @@ public class MappingObjetosNota {
             if (optionalNota.isPresent()){
                 notaLocal = new Nota();
                 notaLocal.setIdNota(optionalNota.get().getIdNota());
+                notaLocal.setNota1(optionalNota.get().getNota1());
+                notaLocal.setNota2(optionalNota.get().getNota2());
+                notaLocal.setNota3(optionalNota.get().getNota3());
+                notaLocal.setNota4(optionalNota.get().getNota4());
+                notaLocal.setControl1(optionalNota.get().getControl1());
+                notaLocal.setControl2(optionalNota.get().getControl2());
+                notaLocal.setControl3(optionalNota.get().getControl3());
+                notaLocal.setControl4(optionalNota.get().getControl4());
+                notaLocal.setPromedioNotas(optionalNota.get().getPromedioNotas());
+                notaLocal.setPromedioControles(optionalNota.get().getPromedioControles());
+                notaLocal.setAlumno(optionalNota.get().getAlumno());
+                notaLocal.setAsignatura(optionalNota.get().getAsignatura());
             }
         }catch (Exception ex){
             ex.printStackTrace();

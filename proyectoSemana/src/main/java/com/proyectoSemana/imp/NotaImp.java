@@ -87,8 +87,10 @@ public class NotaImp implements INotaService {
         ResponseNotaDto notaDtoLocal = null;
         Nota notaLocal = null;
         try {
-            Nota validateAlumno = transformarObjetosN.transformarOptionaNota(notaRepository.findByIdAlumno(reqAlumnoDto.getId_alumnoDto()));
-            Nota validateAsignatura = transformarObjetosN.transformarOptionaNota(notaRepository.findByIdAsignatura(reqAsignaturaDto.getId_asignaturaDto()));
+            Nota validateAlumno = transformarObjetosN.transformarOptionaNota(notaRepository.findByIdAlumno
+                    (reqAlumnoDto.getId_alumnoDto()));
+            Nota validateAsignatura = transformarObjetosN.transformarOptionaNota(notaRepository.findByIdAsignatura
+                    (reqAsignaturaDto.getId_asignaturaDto()));
             if (nota1 != 0 && validateAlumno != null && validateAsignatura != null){
                 notaLocal = new Nota();
                 notaLocal.setNota1(nota1);

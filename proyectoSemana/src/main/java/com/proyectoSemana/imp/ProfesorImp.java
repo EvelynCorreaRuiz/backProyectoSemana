@@ -11,16 +11,14 @@ import com.proyectoSemana.repository.ProfesorRepository;
 import com.proyectoSemana.service.IProfesorService;
 import com.proyectoSemana.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class ProfesorImp implements IProfesorService {
 
 
     @Autowired
     private ProfesorRepository profesorRepository;
-
-    @Autowired
-    private CursoImp cursoImp;
 
     @Autowired
     private LoginImp loginImp;
@@ -30,11 +28,11 @@ public class ProfesorImp implements IProfesorService {
 
     @Override
     public boolean validarProfesor(ReqProfesorDto reqProfesorDto) throws Exception {
-      /*  Profesor profesorLocal;
-        Login loginLocal;
+        Profesor profesorLocal;
+        Profesor loginLocal;
         try {
-            profesorLocal = profesorRepository.findByRut(reqProfesorDto.getRut_ProfesorDto());
-            loginLocal = profesorRepository.findByEmail(reqProfesorDto.getLoginDto().getEmail());
+            profesorLocal = profesorRepository.findByRutProfesor(reqProfesorDto.getRut_ProfesorDto());
+            loginLocal = profesorRepository.findByEmailProfesor(reqProfesorDto.getLoginDto().getEmail());
             if (null !=profesorLocal && null != loginLocal) {
                 return true;
             }else {
@@ -46,18 +44,16 @@ public class ProfesorImp implements IProfesorService {
         }catch (Exception ex){
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
-        }*/
-      return false;
+        }
     }
 
     @Override
     public ResponseProfesorDto guardarProfesor(ReqProfesorDto reqProfesorDto, Login login, Curso curso) throws Exception {
-       /* Profesor profesorLocal;
+        Profesor profesorLocal;
         ResponseProfesorDto responseProfesorDtoLocal;
         try {
-            Profesor validateRut = profesorRepository.findByRut(reqProfesorDto.getRut_ProfesorDto());
-            Login validateEmail = profesorRepository.findByEmail(reqProfesorDto.getLoginDto().getEmail());
-            if (null == validateEmail && null == validateRut) {
+            validarProfesor(reqProfesorDto);
+            if (null != reqProfesorDto) {
                 profesorLocal = new Profesor();
                 profesorLocal.setApellidoProfesor(reqProfesorDto.getApellido_ProfesorDto());
                 profesorLocal.setNombreProfesor(reqProfesorDto.getNombre_ProfesorDto());
@@ -76,25 +72,33 @@ public class ProfesorImp implements IProfesorService {
         }catch (Exception ex){
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
-        }*/
+        }
         return null;
     }
 
-
-
     @Override
     public ResponseCursoDto guardarAsignatura(ReqProfesorDto reqProfesorDto, ReqAsignaturaDto reqAsignaturaDto) throws Exception {
+        Curso cursoLocal = null;
+        ResponseCursoDto cursoDtoLocal = null;
+        try {
+            validarProfesor(reqProfesorDto);
+            if (null != reqProfesorDto){
+                cursoLocal = new Curso();
+
+
+            }
+
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+            throw new Exception(Constant.ERROR_SISTEMA);
+        }
         return null;
     }
 
     @Override
     public boolean eliminarAlumno(Long id_alumno) throws Exception {
         return false;
-    }
-
-    @Override
-    public ResponseLoginDto actualizarAlumno(Long id_alumno, ReqAlumnoDto reqAlumnoDto) throws Exception {
-        return null;
     }
 
 

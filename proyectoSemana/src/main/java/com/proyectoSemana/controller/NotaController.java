@@ -21,7 +21,8 @@ public class NotaController {
     private NotaImp notaImp;
 
     @RequestMapping(value = "/nota1", method = RequestMethod.POST)
-    public ResponseEntity<Object> agregarNota1(@RequestBody double nota1, ReqAlumnoDto reqAlumnoDto, ReqAsignaturaDto reqAsignaturaDto){
+    public ResponseEntity<Object> agregarNota1(@RequestBody double nota1, ReqAlumnoDto reqAlumnoDto,
+                                               ReqAsignaturaDto reqAsignaturaDto){
         ResponseEntity<Object> rs = null;
         try {
             rs = new ResponseEntity<Object>(notaImp.agregarNota1(nota1,reqAlumnoDto, reqAsignaturaDto), HttpStatus.OK);

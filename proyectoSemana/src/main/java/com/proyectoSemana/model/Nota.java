@@ -149,5 +149,6 @@ public class Nota {
     public void setPromedioControles(double promedioControles) {
         this.promedioControles = promedioControles;
     }
+
 }
 

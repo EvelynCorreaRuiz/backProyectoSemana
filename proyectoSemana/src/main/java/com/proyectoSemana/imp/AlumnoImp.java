@@ -6,10 +6,12 @@ import com.proyectoSemana.dto.ResponseNotaDto;
 import com.proyectoSemana.model.Nota;
 import com.proyectoSemana.service.IAlumnoService;
 import com.proyectoSemana.util.Constant;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AlumnoImp implements IAlumnoService {
 
-    @Override
+    /*@Override
     public ResponseAlumnoDto VerNotas(ReqAlumnoDto reqAlumnoDto) throws Exception {
         ResponseNotaDto responseNotaDto;
         Nota notalocal = null;
@@ -20,6 +22,6 @@ public class AlumnoImp implements IAlumnoService {
             throw new Exception(Constant.ERROR_SISTEMA);
         }
         return null;
-    }
+    }*/
 
 }
