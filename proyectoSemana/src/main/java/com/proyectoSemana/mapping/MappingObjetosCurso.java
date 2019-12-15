@@ -7,19 +7,18 @@ import com.proyectoSemana.util.Constant;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MappingObjetosCurso {
 
-    public Curso tranformarDtoaModel(ReqCursoDto reqCursoDto, List<Alumno> alumnoList, List<Profesor> profesorList, List<AsignaturaCurso> asignaturasCursoList) throws Exception{
+    public Curso tranformarDtoaModel(ReqCursoDto reqCursoDto) throws Exception{
         Curso cursoLocal = null;
         try {
             cursoLocal = new Curso();
             cursoLocal.setNombreCurso(reqCursoDto.getNombreCursoDto());
             cursoLocal.setIdCurso(reqCursoDto.getId_cursoDto());
-            cursoLocal.setAlumnoList(alumnoList);
-            cursoLocal.setProfesorList(profesorList);
-            cursoLocal.setAsignaturaCursoList(asignaturasCursoList);
+
         }catch (Exception ex){
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
@@ -31,7 +30,7 @@ public class MappingObjetosCurso {
         ResponseCursoDto responseCursoDto = null;
         try {
             responseCursoDto = new ResponseCursoDto();
-            responseCursoDto.setNombreCurso(cursoLocal.getNombreCurso());
+            responseCursoDto.setNombreCursoDto(cursoLocal.getNombreCurso());
 
         }catch(Exception ex){
             ex.printStackTrace();
@@ -39,5 +38,24 @@ public class MappingObjetosCurso {
 
         }
         return responseCursoDto;
+    }
+
+    public Curso transformOptionalToCurso(Optional<Curso> cursoOptional) throws Exception{
+        Curso curso = null;
+        try {
+            if (cursoOptional.isPresent()){
+                curso = new Curso();
+                curso.setIdCurso(cursoOptional.get().getIdCurso());
+                curso.setNombreCurso(cursoOptional.get().getNombreCurso());
+                curso.setAlumnoList(cursoOptional.get().getAlumnoList());
+                curso.setProfesorList(cursoOptional.get().getProfesorList());
+                curso.setAsignaturaCursoList(cursoOptional.get().getAsignaturaCursoList());
+
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+            throw new Exception(Constant.ERROR_SISTEMA);
+        }
+        return curso;
     }
 }

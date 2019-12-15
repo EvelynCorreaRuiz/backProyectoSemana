@@ -1,15 +1,14 @@
 package com.proyectoSemana.dto;
 
-import com.proyectoSemana.model.Curso;
-import com.proyectoSemana.model.Login;
-
 public class ReqAlumnoDto {
     private Long id_alumnoDto;
+    private Long id_login;
+    private Long id_curso;
+    private Long id_profesor;
     private String nombre_AlumnoDto;
     private String apellido_AlumnoDto;
     private String rut_AlumnoDto;
-    private Login loginDto;
-    private Curso cursoDto;
+
 
     public Long getId_alumnoDto() {
         return id_alumnoDto;
@@ -17,6 +16,30 @@ public class ReqAlumnoDto {
 
     public void setId_alumnoDto(Long id_alumnoDto) {
         this.id_alumnoDto = id_alumnoDto;
+    }
+
+    public Long getId_login() {
+        return id_login;
+    }
+
+    public void setId_login(Long id_login) {
+        this.id_login = id_login;
+    }
+
+    public Long getId_curso() {
+        return id_curso;
+    }
+
+    public void setId_curso(Long id_curso) {
+        this.id_curso = id_curso;
+    }
+
+    public Long getId_profesor() {
+        return id_profesor;
+    }
+
+    public void setId_profesor(Long id_profesor) {
+        this.id_profesor = id_profesor;
     }
 
     public String getNombre_AlumnoDto() {
@@ -43,19 +66,4 @@ public class ReqAlumnoDto {
         this.rut_AlumnoDto = rut_AlumnoDto;
     }
 
-    public Login getLoginDto() {
-        return loginDto;
-    }
-
-    public void setLoginDto(Login loginDto) {
-        this.loginDto = loginDto;
-    }
-
-    public Curso getCursoDto() {
-        return cursoDto;
-    }
-
-    public void setCursoDto(Curso cursoDto) {
-        this.cursoDto = cursoDto;
-    }
 }

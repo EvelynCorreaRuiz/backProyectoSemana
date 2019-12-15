@@ -45,6 +45,21 @@ public class MappingObjetosProfesor {
         return profesorDto;
     }
 
+    public Profesor transformDtoToProfesor(ReqProfesorDto reqProfesorDto, Login login, Curso curso) throws Exception{
+        Profesor profesorLocal = null;
+        try {
+            profesorLocal = new Profesor();
+            profesorLocal.setId_profesor(reqProfesorDto.getIdProfesorDto());
+            profesorLocal.setLogin(login);
+            profesorLocal.setCurso(curso);
+            profesorLocal.setNombreProfesor(reqProfesorDto.getNombre_ProfesorDto());
+            profesorLocal.setApellidoProfesor(reqProfesorDto.getApellido_ProfesorDto());
+            profesorLocal.setRutProfesor(reqProfesorDto.getRut_ProfesorDto());
+        }catch (Exception ex){
+            ex.printStackTrace();
+            throw new Exception(Constant.ERROR_SISTEMA);
 
-
+        }
+        return profesorLocal;
+    }
 }

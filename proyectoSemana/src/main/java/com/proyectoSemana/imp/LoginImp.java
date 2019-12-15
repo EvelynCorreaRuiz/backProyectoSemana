@@ -56,7 +56,6 @@ public class LoginImp implements ILoginService {
         }
         return responseLoginDto;
     }
-
     @Override
     public boolean validarSession(ReqLoginDto reqLoginDto) throws Exception {
         Login loginLocal;
@@ -112,7 +111,6 @@ public class LoginImp implements ILoginService {
     @Override
     public boolean eliminarLogin(Long id) throws Exception {
         try {
-
             Login loginLocal = transformarObjetos.transformarOptionaLogin(loginRepository.findById(id));
             if (null == loginLocal) {
                 throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);

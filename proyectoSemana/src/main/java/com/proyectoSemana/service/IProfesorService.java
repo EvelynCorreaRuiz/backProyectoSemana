@@ -3,14 +3,12 @@ package com.proyectoSemana.service;
 import com.proyectoSemana.dto.*;
 import com.proyectoSemana.model.Curso;
 import com.proyectoSemana.model.Login;
+import com.proyectoSemana.model.Profesor;
 
 
 public interface IProfesorService {
-    boolean validarProfesor(ReqProfesorDto reqProfesorDto) throws Exception;
+    ResponseProfesorDto guardarProfesor(ReqProfesorDto reqProfesorDto) throws Exception;
 
-    ResponseProfesorDto guardarProfesor(ReqProfesorDto reqProfesorDto, Login login, Curso curso) throws Exception;
+    Profesor buscarProfesorPorId(Long id) throws Exception;
 
-    ResponseCursoDto guardarAsignatura(ReqProfesorDto reqProfesorDto, ReqAsignaturaDto reqAsignaturaDto) throws Exception;
-
-    boolean eliminarAlumno(Long id_alumno) throws Exception;
 }

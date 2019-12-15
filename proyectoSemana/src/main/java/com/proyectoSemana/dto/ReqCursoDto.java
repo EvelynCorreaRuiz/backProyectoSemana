@@ -1,17 +1,10 @@
 package com.proyectoSemana.dto;
 
-import com.proyectoSemana.model.Alumno;
-import com.proyectoSemana.model.AsignaturaCurso;
-import com.proyectoSemana.model.Profesor;
-
-import java.util.List;
-
 public class ReqCursoDto {
     private Long id_cursoDto;
+    private Long id_profesor;
     private String nombreCursoDto;
-    private List<Profesor> profesorListDto;
-    private List<Alumno> alumnoListDto;
-    private List<AsignaturaCurso> asignaturaCursoListDto;
+    private String nombre_profesorDto;
 
     public Long getId_cursoDto() {
         return id_cursoDto;
@@ -19,6 +12,14 @@ public class ReqCursoDto {
 
     public void setId_cursoDto(Long id_cursoDto) {
         this.id_cursoDto = id_cursoDto;
+    }
+
+    public Long getId_profesor() {
+        return id_profesor;
+    }
+
+    public void setId_profesor(Long id_profesor) {
+        this.id_profesor = id_profesor;
     }
 
     public String getNombreCursoDto() {
@@ -29,28 +30,12 @@ public class ReqCursoDto {
         this.nombreCursoDto = nombreCursoDto;
     }
 
-    public List<Profesor> getProfesorListDto() {
-        return profesorListDto;
+    public String getNombre_profesorDto() {
+        return nombre_profesorDto;
     }
 
-    public void setProfesorListDto(List<Profesor> profesorListDto) {
-        this.profesorListDto = profesorListDto;
-    }
-
-    public List<Alumno> getAlumnoListDto() {
-        return alumnoListDto;
-    }
-
-    public void setAlumnoListDto(List<Alumno> alumnoListDto) {
-        this.alumnoListDto = alumnoListDto;
-    }
-
-    public List<AsignaturaCurso> getAsignaturaCursoListDto() {
-        return asignaturaCursoListDto;
-    }
-
-    public void setAsignaturaCursoListDto(List<AsignaturaCurso> asignaturaCursoListDto) {
-        this.asignaturaCursoListDto = asignaturaCursoListDto;
-
+    public void setNombre_profesorDto(String nombre_profesorDto) {
+        this.nombre_profesorDto = nombre_profesorDto;
     }
 }
+

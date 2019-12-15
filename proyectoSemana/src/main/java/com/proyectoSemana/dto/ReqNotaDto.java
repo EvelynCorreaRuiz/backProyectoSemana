@@ -1,8 +1,5 @@
 package com.proyectoSemana.dto;
 
-import com.proyectoSemana.model.Alumno;
-import com.proyectoSemana.model.Asignatura;
-
 public class ReqNotaDto {
 
     private Long id_notasDto;
