@@ -6,19 +6,20 @@ import com.proyectoSemana.model.Asignatura;
 import com.proyectoSemana.model.AsignaturaCurso;
 import com.proyectoSemana.model.Nota;
 import com.proyectoSemana.util.Constant;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
+@Service
 public class MappingObjetosAsignatura{
 
-    public Asignatura transformarDtoaModel(ReqAsignaturaDto reqAsignaturaDto, List<Nota> notaList, List<AsignaturaCurso> asignaturasCursoList) throws Exception {
+    public Asignatura transformarDtoaModel(ReqAsignaturaDto reqAsignaturaDto) throws Exception {
         Asignatura asignaturaLocal = null;
         try{
             asignaturaLocal = new Asignatura();
-            asignaturaLocal.setAsignaturasCurso(reqAsignaturaDto.getAsignaturaCursoListDto());
             asignaturaLocal.setIdAsignatura(reqAsignaturaDto.getId_asignaturaDto());
-            asignaturaLocal.setNotaList(reqAsignaturaDto.getNotaListDto());
-            asignaturaLocal.setAsignaturasCurso(reqAsignaturaDto.getAsignaturaCursoListDto());
+            asignaturaLocal.setNombreAsignatura(reqAsignaturaDto.getNombre_AsignaturaDto());
 
         }catch(Exception ex){
             ex.printStackTrace();
@@ -27,16 +28,31 @@ public class MappingObjetosAsignatura{
         return asignaturaLocal;
     }
 
-    public Asignatura transformarModelaDto(Asignatura asignaturaLocal) throws Exception{
-        ResponseAsignaturaDto responseAsignaturaDto = null;
+    public ResponseAsignaturaDto transformarModelaResponse(Asignatura asignaturaLocal) throws Exception{
+        ResponseAsignaturaDto asignaturaDto = null;
         try{
-            responseAsignaturaDto = new ResponseAsignaturaDto();
-            responseAsignaturaDto.setNombre_Asignatura(asignaturaLocal.getNombreAsignatura());
+            asignaturaDto = new ResponseAsignaturaDto();
+            asignaturaDto.setNombre_Asignatura(asignaturaLocal.getNombreAsignatura());
         }catch(Exception ex){
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }
-        return asignaturaLocal;
+        return asignaturaDto;
+    }
+
+    public Asignatura transformarOptionalIntoModel(Optional<Asignatura> asignaturaLocal) throws Exception{
+        Asignatura asignatura = null;
+        try{
+            asignatura = new Asignatura();
+            asignatura.setIdAsignatura(asignaturaLocal.get().getIdAsignatura());
+            asignatura.setNombreAsignatura(asignaturaLocal.get().getNombreAsignatura());
+            asignatura.setAsignaturasCurso(asignaturaLocal.get().getAsignaturasCurso());
+            asignatura.setNotaList(asignaturaLocal.get().getNotaList());
+        }catch(Exception ex){
+            ex.printStackTrace();
+            throw new Exception(Constant.ERROR_SISTEMA);
+        }
+        return asignatura;
     }
 
 }

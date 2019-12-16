@@ -10,10 +10,10 @@ public class Nota {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idNota;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Alumno alumno;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Asignatura asignatura;
 
     @Column(name = "notas_1")

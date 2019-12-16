@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AsignaturaRepository extends JpaRepository<Asignatura, Long> {
+    Asignatura findByNombreAsignatura(String nombre);
 }

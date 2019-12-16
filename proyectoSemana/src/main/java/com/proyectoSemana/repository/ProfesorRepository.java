@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface ProfesorRepository extends JpaRepository<Profesor, Long>{
 
     Profesor findByRutProfesor(String rutProfesor);
-    Profesor findByEmailProfesor(String emailProfesor);
+   // Profesor findByEmailProfesor(String emailProfesor);
 }

@@ -3,8 +3,6 @@ package com.proyectoSemana.imp;
 import com.proyectoSemana.dto.*;
 import com.proyectoSemana.exception.NoEncontradoException;
 import com.proyectoSemana.exception.NoGuardarException;
-import com.proyectoSemana.exception.NoValidarSesionException;
-import com.proyectoSemana.mapping.MappingObjetosAsignaturasCurso;
 import com.proyectoSemana.mapping.MappingObjetosProfesor;
 import com.proyectoSemana.model.*;
 import com.proyectoSemana.repository.ProfesorRepository;
@@ -12,9 +10,6 @@ import com.proyectoSemana.service.IProfesorService;
 import com.proyectoSemana.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class ProfesorImp implements IProfesorService {

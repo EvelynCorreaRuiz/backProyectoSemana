@@ -131,7 +131,9 @@ public class LoginImp implements ILoginService {
     public ResponseLoginDto actualizarLogin(Long id, ReqLoginDto reqLoginDto) throws Exception {
         ResponseLoginDto responseLoginDto = null;
         try {
-
+            //sip vale entonces hago un metodo para listar y otro para actualizar?
+            //piensen en que es lo que mostraran en el front y que se actualizara //
+            //muestrame donde estas fallando
             Login login = buscarPorId(id);
             if (null != reqLoginDto && null != reqLoginDto.getEmailDto() && null != reqLoginDto.getPasswordDto()) {
                 login.setEmail(reqLoginDto.getEmailDto());

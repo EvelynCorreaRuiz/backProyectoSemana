@@ -7,10 +7,12 @@ import com.proyectoSemana.model.Curso;
 import com.proyectoSemana.model.Login;
 import com.proyectoSemana.model.Nota;
 import com.proyectoSemana.util.Constant;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MappingObjetosAlumno {
 
     public Alumno tranformarDtoaModel(ReqAlumnoDto alumnoDto, Login login, Curso curso/*, List<Nota> notaList*/) throws Exception{

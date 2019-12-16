@@ -14,27 +14,11 @@ public class Asignatura {
     @Column(name = "nombre_asignatura", nullable = false, unique = true)
     private String nombreAsignatura;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "asignatura")
+    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY, mappedBy ="asignatura")
     private List<Nota> notaList;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "asignatura")
+    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY, mappedBy = "asignatura")
     private List<AsignaturaCurso> asignaturasCurso;
-
-    public List<Nota> getNotaList() {
-        return notaList;
-    }
-
-    public void setNotaList(List<Nota> notaList) {
-        this.notaList = notaList;
-    }
-
-    public List<AsignaturaCurso> getAsignaturasCurso() {
-        return asignaturasCurso;
-    }
-
-    public void setAsignaturasCurso(List<AsignaturaCurso> asignaturasCurso) {
-        this.asignaturasCurso = asignaturasCurso;
-    }
 
     public Long getIdAsignatura() {
         return idAsignatura;
@@ -52,5 +36,19 @@ public class Asignatura {
         this.nombreAsignatura = nombreAsignatura;
     }
 
-    public void setAsignaturasCurso() { }
+    public List<Nota> getNotaList() {
+        return notaList;
+    }
+
+    public void setNotaList(List<Nota> notaList) {
+        this.notaList = notaList;
+    }
+
+    public List<AsignaturaCurso> getAsignaturasCurso() {
+        return asignaturasCurso;
+    }
+
+    public void setAsignaturasCurso(List<AsignaturaCurso> asignaturasCurso) {
+        this.asignaturasCurso = asignaturasCurso;
+    }
 }

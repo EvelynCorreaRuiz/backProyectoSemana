@@ -1,14 +1,11 @@
 package com.proyectoSemana.imp;
 
 import com.proyectoSemana.dto.ReqCursoDto;
-import com.proyectoSemana.dto.ReqProfesorDto;
 import com.proyectoSemana.dto.ResponseCursoDto;
 import com.proyectoSemana.exception.NoEncontradoException;
 import com.proyectoSemana.exception.NoGuardarException;
-import com.proyectoSemana.exception.NoValidarSesionException;
 import com.proyectoSemana.mapping.MappingObjetosCurso;
 import com.proyectoSemana.model.Curso;
-import com.proyectoSemana.model.Profesor;
 import com.proyectoSemana.repository.CursoRepository;
 import com.proyectoSemana.repository.ProfesorRepository;
 import com.proyectoSemana.service.ICursoService;
@@ -16,8 +13,6 @@ import com.proyectoSemana.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class CursoImp implements ICursoService {
@@ -37,21 +32,25 @@ public class CursoImp implements ICursoService {
 
     @Override
     public ResponseCursoDto guardarCurso(ReqCursoDto reqCursoDto) throws Exception {
-        ResponseCursoDto responseCursoDto;
-        Curso cursoLocal;
-        try {
-            Profesor profesor = profesorImp.buscarProfesorPorId(reqCursoDto.getId_profesor());
-            List<Profesor> listProfesor = new ArrayList<>();
 
+        try {
+            if(null != reqCursoDto || null != reqCursoDto.getNombreCursoDto()){
+                Curso  cursoLocal = new Curso();
+                cursoLocal.setNombreCurso(reqCursoDto.getNombreCursoDto());
+                cursoLocal = cursoRepository.save(cursoLocal);
+                ResponseCursoDto responseCursoDto = new ResponseCursoDto();
+                responseCursoDto.setNombreCursoDto(cursoLocal.getNombreCurso());
+                return responseCursoDto;
+            }else{
+                throw new NoGuardarException(Constant.ERROR_GUARDAR);
+            }
         }catch (NoGuardarException ex){
             ex.printStackTrace();
             throw new NoGuardarException(ex.getMessage());
-
         }catch (Exception ex){
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }
-        return null;
     }
 
     @Override

@@ -5,7 +5,9 @@ import com.proyectoSemana.dto.ReqAsignaturaCursoDto;
 import com.proyectoSemana.dto.ResponseAsignaturaCursoDto;
 import com.proyectoSemana.model.AsignaturaCurso;
 import com.proyectoSemana.util.Constant;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MappingObjetosAsignaturasCurso {
 
     public AsignaturaCurso transformarDtoaModel(ReqAsignaturaCursoDto reqAsignaturaCursoDto) throws Exception{
@@ -27,8 +29,8 @@ public class MappingObjetosAsignaturasCurso {
         ResponseAsignaturaCursoDto asignaturaCursoDtoLocal = null;
         try {
             asignaturaCursoDtoLocal = new ResponseAsignaturaCursoDto();
-            asignaturaCursoDtoLocal.setAsignaturaDto(asignaturaCurso.getAsignatura());
-            asignaturaCursoDtoLocal.setCursoDto(asignaturaCurso.getCurso());
+            //asignaturaCursoDtoLocal.setAsignaturaDto(asignaturaCurso.getAsignatura());
+            //asignaturaCursoDtoLocal.setCursoDto(asignaturaCurso.getCurso());
         }catch (Exception ex){
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);

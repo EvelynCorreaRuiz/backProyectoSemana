@@ -6,9 +6,10 @@ import com.proyectoSemana.model.Curso;
 import com.proyectoSemana.model.Login;
 import com.proyectoSemana.model.Profesor;
 import com.proyectoSemana.util.Constant;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-
+@Service
 public class MappingObjetosProfesor {
 
     public Profesor transformarOptionalaProfesor(Optional<Profesor> profesorOptional) throws Exception{
