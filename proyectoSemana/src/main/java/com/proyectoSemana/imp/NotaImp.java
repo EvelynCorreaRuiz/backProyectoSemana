@@ -16,8 +16,6 @@ import com.proyectoSemana.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class NotaImp implements INotaService {
 
@@ -42,7 +40,7 @@ public class NotaImp implements INotaService {
         ResponseNotaDto notaDtoLocal = null;
         Nota notaLocal = null;
         try {
-            Alumno alumno = alumnoRepository.findByRut(reqNotaAlumnoAsignaturaDto.getRutDto());
+            Alumno alumno = alumnoRepository.findByRutAlumno(reqNotaAlumnoAsignaturaDto.getRutDto());
             Asignatura asignatura = mappingObjetosAsignatura.transformarOptionalIntoModel(asignaturaRepository.findById(reqNotaAlumnoAsignaturaDto.getIdAsignaturaDto()));
             if (null != reqNotaAlumnoAsignaturaDto){
                 notaLocal = new Nota();

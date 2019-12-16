@@ -4,7 +4,6 @@ public class ReqAlumnoDto {
     private Long id_alumnoDto;
     private Long id_login;
     private Long id_curso;
-    private Long id_profesor;
     private String nombre_AlumnoDto;
     private String apellido_AlumnoDto;
     private String rut_AlumnoDto;
@@ -32,14 +31,6 @@ public class ReqAlumnoDto {
 
     public void setId_curso(Long id_curso) {
         this.id_curso = id_curso;
-    }
-
-    public Long getId_profesor() {
-        return id_profesor;
-    }
-
-    public void setId_profesor(Long id_profesor) {
-        this.id_profesor = id_profesor;
     }
 
     public String getNombre_AlumnoDto() {

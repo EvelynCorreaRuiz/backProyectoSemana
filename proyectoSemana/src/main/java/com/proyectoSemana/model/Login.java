@@ -19,10 +19,10 @@ public class Login {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToOne(mappedBy = "login", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "login", cascade = CascadeType.MERGE)
     private Alumno alumno;
 
-    @OneToOne(mappedBy = "login", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "login", cascade = CascadeType.MERGE)
     private Profesor profesor;
 
 

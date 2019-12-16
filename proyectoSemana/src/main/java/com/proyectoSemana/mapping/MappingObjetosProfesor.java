@@ -53,9 +53,9 @@ public class MappingObjetosProfesor {
             profesorLocal.setIdProfesor(reqProfesorDto.getIdProfesorDto());
             profesorLocal.setLogin(login);
             profesorLocal.setCurso(curso);
-            profesorLocal.setNombreProfesor(reqProfesorDto.getNombre_ProfesorDto());
-            profesorLocal.setApellidoProfesor(reqProfesorDto.getApellido_ProfesorDto());
-            profesorLocal.setRutProfesor(reqProfesorDto.getRut_ProfesorDto());
+            profesorLocal.setNombreProfesor(reqProfesorDto.getNombreProfesorDto());
+            profesorLocal.setApellidoProfesor(reqProfesorDto.getApellidoProfesorDto());
+            profesorLocal.setRutProfesor(reqProfesorDto.getRutProfesorDto());
         }catch (Exception ex){
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);

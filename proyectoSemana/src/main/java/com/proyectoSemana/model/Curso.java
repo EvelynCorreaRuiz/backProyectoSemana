@@ -15,13 +15,13 @@ public class Curso {
     @Column(name = "nombre_curso", nullable = false, unique = true)
     private String nombreCurso;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "curso")
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "curso")
     private List<Profesor> profesorList;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "curso")
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "curso")
     private List<Alumno> alumnoList;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "curso")
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "curso")
     private List<AsignaturaCurso> asignaturaCursoList;
 
     public Long getIdCurso() {

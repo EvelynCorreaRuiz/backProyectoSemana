@@ -59,7 +59,6 @@ public class AlumnoImp implements IAlumnoService {
             if (null == alumno){
                 throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
             }
-
         }catch(NoEncontradoException ex){
             ex.printStackTrace();
             throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
@@ -67,7 +66,6 @@ public class AlumnoImp implements IAlumnoService {
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }
-
         return null;
     }
 }

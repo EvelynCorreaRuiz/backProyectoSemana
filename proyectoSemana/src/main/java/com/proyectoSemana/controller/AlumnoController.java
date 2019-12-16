@@ -1,6 +1,7 @@
 package com.proyectoSemana.controller;
 
 import com.proyectoSemana.dto.ReqAlumnoDto;
+import com.proyectoSemana.exception.NoEncontradoException;
 import com.proyectoSemana.exception.NoGuardarException;
 import com.proyectoSemana.imp.AlumnoImp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,23 @@ public class AlumnoController {
         try {
             rs = new ResponseEntity<Object>(alumnoImp.guardarAlumno(reqAlumnoDto), HttpStatus.OK);
         }catch (NoGuardarException ex){
+            ex.printStackTrace();
             rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return rs;
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Object> buscarAlumnoPorId(@PathVariable Long id){
+        ResponseEntity<Object> rs = null;
+        try {
+            rs = new ResponseEntity<Object>(alumnoImp.buscarAlumnoPorId(id), HttpStatus.OK);
+        }catch (NoEncontradoException ex){
+            ex.printStackTrace();
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }catch (Exception ex){
             ex.printStackTrace();
             rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

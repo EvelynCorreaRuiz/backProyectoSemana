@@ -4,9 +4,9 @@ public class ReqProfesorDto {
     private Long idProfesorDto;
     private Long idLoginDto;
     private Long idCursoDto;
-    private String nombre_ProfesorDto;
-    private String apellido_ProfesorDto;
-    private String rut_ProfesorDto;
+    private String nombreProfesorDto;
+    private String apellidoProfesorDto;
+    private String rutProfesorDto;
 
     public Long getIdProfesorDto() {
         return idProfesorDto;
@@ -32,16 +32,16 @@ public class ReqProfesorDto {
         this.idCursoDto = idCursoDto;
     }
 
-    public String getNombre_ProfesorDto() {return nombre_ProfesorDto;}
+    public String getNombreProfesorDto() {return nombreProfesorDto;}
 
-    public void setNombre_ProfesorDto(String nombre_ProfesorDto) {this.nombre_ProfesorDto = nombre_ProfesorDto;}
+    public void setNombreProfesorDto(String nombreProfesorDto) {this.nombreProfesorDto = nombreProfesorDto;}
 
-    public String getApellido_ProfesorDto() {return apellido_ProfesorDto;}
+    public String getApellidoProfesorDto() {return apellidoProfesorDto;}
 
-    public void setApellido_ProfesorDto(String apellido_ProfesorDto) {this.apellido_ProfesorDto = apellido_ProfesorDto;}
+    public void setApellidoProfesorDto(String apellidoProfesorDto) {this.apellidoProfesorDto = apellidoProfesorDto;}
 
-    public String getRut_ProfesorDto() {return rut_ProfesorDto;}
+    public String getRutProfesorDto() {return rutProfesorDto;}
 
-    public void setRut_ProfesorDto(String rut_ProfesorDto) {this.rut_ProfesorDto = rut_ProfesorDto;}
+    public void setRutProfesorDto(String rutProfesorDto) {this.rutProfesorDto = rutProfesorDto;}
 
 }

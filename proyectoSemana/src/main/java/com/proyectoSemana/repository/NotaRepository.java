@@ -8,6 +8,4 @@ import java.util.Optional;
 
 @Repository
 public interface NotaRepository extends JpaRepository<Nota, Long> {
-    //Optional<Nota> findByIdAlumno(Long id);
-    //Optional<Nota> findByIdAsignatura(Long Id);
 }

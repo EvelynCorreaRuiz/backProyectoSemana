@@ -11,10 +11,10 @@ public class AsignaturaCurso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAsignaturaCurso;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Asignatura asignatura;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Curso curso;
 
     public Asignatura getAsignatura() {

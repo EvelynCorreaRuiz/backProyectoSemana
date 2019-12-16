@@ -1,9 +1,9 @@
 package com.proyectoSemana.controller;
 
-import com.proyectoSemana.dto.ReqProfesorDto;
+import com.proyectoSemana.dto.ReqAsignaturaDto;
 import com.proyectoSemana.exception.NoEncontradoException;
 import com.proyectoSemana.exception.NoGuardarException;
-import com.proyectoSemana.imp.ProfesorImp;
+import com.proyectoSemana.imp.AsignaturaImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,32 +11,32 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/api/v1/profesores")
-public class ProfesorController {
+@RequestMapping("/api/v1/asignaturas")
+public class AsignaturaController {
 
     @Autowired
-    private ProfesorImp profesorImp;
+    private AsignaturaImp asignaturaImp;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Object> guardarProfesor(@RequestBody ReqProfesorDto reqProfesorDto){
+    public ResponseEntity<Object> guardarLogin(@RequestBody ReqAsignaturaDto reqAsignaturaDto){
         ResponseEntity<Object> rs = null;
         try {
-            rs = new ResponseEntity<Object>(profesorImp.guardarProfesor(reqProfesorDto), HttpStatus.OK);
+            rs = new ResponseEntity<Object>(asignaturaImp.guardarAsignatura(reqAsignaturaDto), HttpStatus.OK) ;
         }catch (NoGuardarException ex){
             ex.printStackTrace();
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE);
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE) ;
         }catch (Exception ex){
             ex.printStackTrace();
-            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR) ;
         }
         return rs;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Object> buscarCursoPorId(@PathVariable Long id){
+    @RequestMapping(value = "/{id}",method = RequestMethod.GET)
+    public ResponseEntity<Object> buscarAsignaturaPorId(@PathVariable Long id){
         ResponseEntity<Object> rs = null;
         try {
-            rs = new ResponseEntity<Object>(profesorImp.buscarProfesorPorId(id), HttpStatus.OK);
+            rs = new ResponseEntity<Object>(asignaturaImp.buscarIdAsignatura(id),HttpStatus.OK);
         }catch (NoEncontradoException ex){
             ex.printStackTrace();
             rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_FOUND) ;

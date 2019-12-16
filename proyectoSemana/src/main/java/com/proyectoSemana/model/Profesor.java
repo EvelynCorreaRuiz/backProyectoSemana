@@ -24,7 +24,7 @@ public class Profesor {
     @JoinColumn(name = "id_login", updatable = false, nullable = false)
     private Login login;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Curso curso;
 
     public Long getIdProfesor() {

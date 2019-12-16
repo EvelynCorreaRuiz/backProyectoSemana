@@ -21,14 +21,14 @@ public class Alumno {
     @Column(name = "rut_alumno", nullable = false, unique = true)
     private String rutAlumno;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Curso curso ;
 
     @OneToOne
     @JoinColumn(name = "id_login", updatable = false, nullable = false)
     private Login login;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "alumno")
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "alumno")
     private List<Nota> notaList;
 
     public Long getIdAlumno() {
