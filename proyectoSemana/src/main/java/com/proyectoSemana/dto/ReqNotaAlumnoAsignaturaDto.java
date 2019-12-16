@@ -4,7 +4,7 @@ public class ReqNotaAlumnoAsignaturaDto {
 
     private Long idDto;
     private String rutDto;
-    private String nombreAsignaturaCursoDto;
+    private Long idAsignaturaDto;
     private double nota1Dto;
     private double nota2Dto;
     private double nota3Dto;
@@ -32,12 +32,12 @@ public class ReqNotaAlumnoAsignaturaDto {
         this.rutDto = rutDto;
     }
 
-    public String getNombreAsignaturaCursoDto() {
-        return nombreAsignaturaCursoDto;
+    public Long getIdAsignaturaDto() {
+        return idAsignaturaDto;
     }
 
-    public void setNombreAsignaturaCursoDto(String nombreAsignaturaCursoDto) {
-        this.nombreAsignaturaCursoDto = nombreAsignaturaCursoDto;
+    public void setIdAsignaturaDto(Long idAsignaturaDto) {
+        this.idAsignaturaDto = idAsignaturaDto;
     }
 
     public double getNota1Dto() {

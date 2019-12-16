@@ -34,7 +34,7 @@ public class NotaImp implements INotaService {
     private MappingObjetosNota transformarObjetosN;
 
     @Autowired
-
+    private MappingObjetosAsignatura mappingObjetosAsignatura;
 
 
     @Override
@@ -43,7 +43,7 @@ public class NotaImp implements INotaService {
         Nota notaLocal = null;
         try {
             Alumno alumno = alumnoRepository.findByRut(reqNotaAlumnoAsignaturaDto.getRutDto());
-            Asignatura asignatura = asignaturaRepository.findByNombreAsignatura(reqNotaAlumnoAsignaturaDto.getNombreAsignaturaCursoDto());
+            Asignatura asignatura = mappingObjetosAsignatura.transformarOptionalIntoModel(asignaturaRepository.findById(reqNotaAlumnoAsignaturaDto.getIdAsignaturaDto()));
             if (null != reqNotaAlumnoAsignaturaDto){
                 notaLocal = new Nota();
                 notaLocal.setNota1(reqNotaAlumnoAsignaturaDto.getNota1Dto());
