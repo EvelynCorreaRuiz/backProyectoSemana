@@ -17,7 +17,7 @@ public class MappingObjetosProfesor {
         try {
             if (profesorOptional.isPresent()) {
                 profesorLocal = new Profesor();
-                profesorLocal.setId_profesor(profesorOptional.get().getId_profesor());
+                profesorLocal.setIdProfesor(profesorOptional.get().getIdProfesor());
                 profesorLocal.setNombreProfesor(profesorOptional.get().getNombreProfesor());
                 profesorLocal.setApellidoProfesor(profesorOptional.get().getApellidoProfesor());
                 profesorLocal.setRutProfesor(profesorOptional.get().getRutProfesor());
@@ -50,7 +50,7 @@ public class MappingObjetosProfesor {
         Profesor profesorLocal = null;
         try {
             profesorLocal = new Profesor();
-            profesorLocal.setId_profesor(reqProfesorDto.getIdProfesorDto());
+            profesorLocal.setIdProfesor(reqProfesorDto.getIdProfesorDto());
             profesorLocal.setLogin(login);
             profesorLocal.setCurso(curso);
             profesorLocal.setNombreProfesor(reqProfesorDto.getNombre_ProfesorDto());

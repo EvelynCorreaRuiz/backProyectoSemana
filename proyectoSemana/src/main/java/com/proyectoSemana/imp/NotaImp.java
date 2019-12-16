@@ -72,4 +72,24 @@ public class NotaImp implements INotaService {
         }
         return notaDtoLocal;
     }
+
+    @Override
+    public Nota buscarNotaPorId(Long id) throws Exception {
+        Nota notaLocal;
+        try {
+            notaLocal = transformarObjetosN.transformarOptionaNota(notaRepository.findById(id));
+            if (null == notaLocal){
+                throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
+            }
+        }catch (NoEncontradoException ex){
+            ex.printStackTrace();
+            throw new NoEncontradoException(ex.getMessage());
+        }catch (Exception ex){
+            ex.printStackTrace();
+            throw new Exception(Constant.ERROR_SISTEMA);
+        }
+        return notaLocal;
+    }
+
+
 }

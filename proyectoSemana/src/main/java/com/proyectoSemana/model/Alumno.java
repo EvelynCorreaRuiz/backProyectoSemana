@@ -10,7 +10,7 @@ public class Alumno {
     @Id
     @Column(name = "id_alumno")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_alumno;
+    private Long idAlumno;
 
     @Column(name = "nombre_alumno", nullable = false)
     private String nombreAlumno;
@@ -19,7 +19,7 @@ public class Alumno {
     private String apellidoAlumno;
 
     @Column(name = "rut_alumno", nullable = false, unique = true)
-    private String rut;
+    private String rutAlumno;
 
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Curso curso ;
@@ -31,12 +31,12 @@ public class Alumno {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "alumno")
     private List<Nota> notaList;
 
-    public Long getId_alumno() {
-        return id_alumno;
+    public Long getIdAlumno() {
+        return idAlumno;
     }
 
-    public void setId_alumno(Long id_alumno) {
-        this.id_alumno = id_alumno;
+    public void setIdAlumno(Long idAlumno) {
+        this.idAlumno = idAlumno;
     }
 
     public String getNombreAlumno() {
@@ -55,12 +55,12 @@ public class Alumno {
         this.apellidoAlumno = apellidoAlumno;
     }
 
-    public String getRut() {
-        return rut;
+    public String getRutAlumno() {
+        return rutAlumno;
     }
 
-    public void setRut(String rut) {
-        this.rut = rut;
+    public void setRutAlumno(String rutAlumno) {
+        this.rutAlumno = rutAlumno;
     }
 
     public Curso getCurso() {

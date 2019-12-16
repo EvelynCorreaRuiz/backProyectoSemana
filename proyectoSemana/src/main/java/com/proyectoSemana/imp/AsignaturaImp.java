@@ -2,6 +2,7 @@ package com.proyectoSemana.imp;
 
 import com.proyectoSemana.dto.ReqAsignaturaDto;
 import com.proyectoSemana.dto.ResponseAsignaturaDto;
+import com.proyectoSemana.exception.NoEncontradoException;
 import com.proyectoSemana.exception.NoGuardarException;
 import com.proyectoSemana.mapping.MappingObjetosAsignatura;
 import com.proyectoSemana.model.Asignatura;
@@ -40,4 +41,24 @@ public class AsignaturaImp implements IAsignaturaService {
         }
         return asignaturaDto;
     }
+
+    @Override
+    public Asignatura buscarIdAsignatura(Long id) throws Exception {
+        Asignatura asignaturaLocal;
+        try {
+            asignaturaLocal = mappingObjetosAsignatura.transformarOptionalIntoModel(asignaturaRepository.findById(id));
+            if (null == asignaturaLocal){
+                throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
+            }
+        }catch (NoEncontradoException ex){
+            ex.printStackTrace();
+            throw new NoEncontradoException(ex.getMessage());
+        }catch (Exception ex){
+            ex.printStackTrace();
+            throw new Exception(Constant.ERROR_SISTEMA);
+        }
+        return asignaturaLocal;
+    }
+
+
 }

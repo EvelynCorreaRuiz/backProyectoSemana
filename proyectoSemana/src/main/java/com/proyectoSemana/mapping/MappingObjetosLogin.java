@@ -16,7 +16,7 @@ public class MappingObjetosLogin {
         try {
             if (loginOptional.isPresent()) {
                 login = new Login();
-                login.setId(loginOptional.get().getId());
+                login.setIdLogin(loginOptional.get().getIdLogin());
                 login.setPassword(loginOptional.get().getPassword());
                 login.setEmail(loginOptional.get().getEmail());
             }

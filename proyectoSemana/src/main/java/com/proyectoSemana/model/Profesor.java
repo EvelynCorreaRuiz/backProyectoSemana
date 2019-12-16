@@ -9,7 +9,7 @@ public class Profesor {
     @Id
     @Column(name = "id_profesor")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_profesor;
+    private Long idProfesor;
 
     @Column(name = "nombre_profesor", nullable = false)
     private String nombreProfesor;
@@ -27,12 +27,12 @@ public class Profesor {
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Curso curso;
 
-    public Long getId_profesor() {
-        return id_profesor;
+    public Long getIdProfesor() {
+        return idProfesor;
     }
 
-    public void setId_profesor(Long id_profesor) {
-        this.id_profesor = id_profesor;
+    public void setIdProfesor(Long idProfesor) {
+        this.idProfesor = idProfesor;
     }
 
     public String getNombreProfesor() {

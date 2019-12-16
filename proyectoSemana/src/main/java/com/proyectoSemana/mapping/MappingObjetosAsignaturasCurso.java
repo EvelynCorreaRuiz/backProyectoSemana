@@ -14,7 +14,7 @@ public class MappingObjetosAsignaturasCurso {
         AsignaturaCurso asignaturaCursoLocal = null;
         try {
             asignaturaCursoLocal = new AsignaturaCurso();
-            asignaturaCursoLocal.setId(reqAsignaturaCursoDto.getId_AsignaturaCursoDto());
+            asignaturaCursoLocal.setIdAsignaturaCurso(reqAsignaturaCursoDto.getId_AsignaturaCursoDto());
             asignaturaCursoLocal.setAsignatura(reqAsignaturaCursoDto.getAsignaturaDto());
             asignaturaCursoLocal.setCurso(reqAsignaturaCursoDto.getCursoDto());
         }catch (Exception ex){

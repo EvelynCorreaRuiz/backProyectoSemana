@@ -9,7 +9,7 @@ public class AsignaturaCurso {
     @Id
     @Column(name = "id_has_curso")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idAsignaturaCurso;
 
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Asignatura asignatura;
@@ -21,12 +21,12 @@ public class AsignaturaCurso {
         return asignatura;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdAsignaturaCurso() {
+        return idAsignaturaCurso;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdAsignaturaCurso(Long idAsignaturaCurso) {
+        this.idAsignaturaCurso = idAsignaturaCurso;
     }
 
     public void setAsignatura(Asignatura asignatura) {

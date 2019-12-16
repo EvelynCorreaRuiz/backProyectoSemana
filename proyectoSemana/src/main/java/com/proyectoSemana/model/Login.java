@@ -10,7 +10,7 @@ public class Login {
     @Id
     @Column(name = "id_login")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idLogin;
 
     @Column(name = "email", unique = true, nullable = false)
     @Email
@@ -26,12 +26,12 @@ public class Login {
     private Profesor profesor;
 
 
-    public Long getId() {
-        return id;
+    public Long getIdLogin() {
+        return idLogin;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdLogin(Long idLogin) {
+        this.idLogin = idLogin;
     }
 
     public String getEmail() {
