@@ -8,6 +8,8 @@ import com.proyectoSemana.model.Login;
 import com.proyectoSemana.util.Constant;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class MappingObjetosAlumno {
 
@@ -16,7 +18,7 @@ public class MappingObjetosAlumno {
         try {
             alumnoLocal.setNombreAlumno(alumnoDto.getNombre_AlumnoDto());
             alumnoLocal.setApellidoAlumno(alumnoDto.getApellido_AlumnoDto());
-            alumnoLocal.setRutAlumno(alumnoDto.getRut_AlumnoDto());
+            alumnoLocal.setRut(alumnoDto.getRut_AlumnoDto());
             alumnoLocal.setIdAlumno(alumnoDto.getId_alumnoDto());
             alumnoLocal.setCurso(curso);
             alumnoLocal.setLogin(login);
@@ -34,11 +36,31 @@ public class MappingObjetosAlumno {
             alumnoDto = new ResponseAlumnoDto();
             alumnoDto.setNombre_AlumnoDto(alumnoLocal.getNombreAlumno());
             alumnoDto.setApellido_AlumnoDto(alumnoLocal.getApellidoAlumno());
-            alumnoDto.setRut_AlumnoDto(alumnoLocal.getRutAlumno());
+            alumnoDto.setRut_AlumnoDto(alumnoLocal.getRut());
         }catch (Exception ex){
             ex.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);
         }
         return alumnoDto;
+    }
+    public Alumno transformarOptionalaModel(Optional<Alumno> alumnoOptional) throws Exception{
+        Alumno alumnoLocal = null;
+        try{
+            if(alumnoOptional.isPresent()){
+                alumnoLocal = new Alumno();
+                alumnoLocal.setIdAlumno(alumnoOptional.get().getIdAlumno());
+                alumnoLocal.setNombreAlumno(alumnoOptional.get().getNombreAlumno());
+                alumnoLocal.setApellidoAlumno(alumnoOptional.get().getApellidoAlumno());
+                alumnoLocal.setRut(alumnoOptional.get().getRut());
+                alumnoLocal.setLogin(alumnoOptional.get().getLogin());
+                alumnoLocal.setCurso(alumnoOptional.get().getCurso());
+                alumnoLocal.setNotaList(alumnoOptional.get().getNotaList());
+            }
+
+        }catch(Exception ex){
+            ex.printStackTrace();
+            throw new Exception(Constant.ERROR_SISTEMA);
+        }
+        return alumnoLocal;
     }
 }

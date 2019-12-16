@@ -5,5 +5,6 @@ import com.proyectoSemana.dto.ResponseAlumnoDto;
 
 public interface IAlumnoService {
    ResponseAlumnoDto guardarAlumno(ReqAlumnoDto alumno) throws Exception;
+   ResponseAlumnoDto buscarAlumnoPorId(Long id) throws Exception;
 
 }
