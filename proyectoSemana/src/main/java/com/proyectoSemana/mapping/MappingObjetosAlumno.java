@@ -5,11 +5,9 @@ import com.proyectoSemana.dto.ResponseAlumnoDto;
 import com.proyectoSemana.model.Alumno;
 import com.proyectoSemana.model.Curso;
 import com.proyectoSemana.model.Login;
-import com.proyectoSemana.model.Nota;
 import com.proyectoSemana.util.Constant;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,7 +19,7 @@ public class MappingObjetosAlumno {
             alumnoLocal.setNombreAlumno(alumnoDto.getNombre_AlumnoDto());
             alumnoLocal.setApellidoAlumno(alumnoDto.getApellido_AlumnoDto());
             alumnoLocal.setRut(alumnoDto.getRut_AlumnoDto());
-            alumnoLocal.setId_alumno(alumnoDto.getId_alumnoDto());
+            alumnoLocal.setIdAlumno(alumnoDto.getId_alumnoDto());
             alumnoLocal.setCurso(curso);
             alumnoLocal.setLogin(login);
             /*alumnoLocal.setNotaList(notaList);*/
@@ -44,5 +42,25 @@ public class MappingObjetosAlumno {
             throw new Exception(Constant.ERROR_SISTEMA);
         }
         return alumnoDto;
+    }
+    public Alumno transformarOptionalaModel(Optional<Alumno> alumnoOptional) throws Exception{
+        Alumno alumnoLocal = null;
+        try{
+            if(alumnoOptional.isPresent()){
+                alumnoLocal = new Alumno();
+                alumnoLocal.setIdAlumno(alumnoOptional.get().getIdAlumno());
+                alumnoLocal.setNombreAlumno(alumnoOptional.get().getNombreAlumno());
+                alumnoLocal.setApellidoAlumno(alumnoOptional.get().getApellidoAlumno());
+                alumnoLocal.setRut(alumnoOptional.get().getRut());
+                alumnoLocal.setLogin(alumnoOptional.get().getLogin());
+                alumnoLocal.setCurso(alumnoOptional.get().getCurso());
+                alumnoLocal.setNotaList(alumnoOptional.get().getNotaList());
+            }
+
+        }catch(Exception ex){
+            ex.printStackTrace();
+            throw new Exception(Constant.ERROR_SISTEMA);
+        }
+        return alumnoLocal;
     }
 }

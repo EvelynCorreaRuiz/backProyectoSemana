@@ -10,7 +10,7 @@ public class Alumno {
     @Id
     @Column(name = "id_alumno")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_alumno;
+    private Long idAlumno;
 
     @Column(name = "nombre_alumno", nullable = false)
     private String nombreAlumno;
@@ -31,12 +31,12 @@ public class Alumno {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "alumno")
     private List<Nota> notaList;
 
-    public Long getId_alumno() {
-        return id_alumno;
+    public Long getIdAlumno() {
+        return idAlumno;
     }
 
-    public void setId_alumno(Long id_alumno) {
-        this.id_alumno = id_alumno;
+    public void setIdAlumno(Long idAlumno) {
+        this.idAlumno = idAlumno;
     }
 
     public String getNombreAlumno() {

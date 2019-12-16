@@ -2,6 +2,7 @@ package com.proyectoSemana.imp;
 
 import com.proyectoSemana.dto.ReqAlumnoDto;
 import com.proyectoSemana.dto.ResponseAlumnoDto;
+import com.proyectoSemana.exception.NoEncontradoException;
 import com.proyectoSemana.exception.NoGuardarException;
 import com.proyectoSemana.mapping.MappingObjetosAlumno;
 import com.proyectoSemana.model.*;
@@ -51,5 +52,22 @@ public class AlumnoImp implements IAlumnoService {
         return alumnoDto;
     }
 
+    public ResponseAlumnoDto buscarAlumnoPorId(Long idAlumno) throws Exception{
+       Alumno alumno = null;
+        try{
+            alumno = mappingObjetosAlumno.transformarOptionalaModel(alumnoRepository.findById(idAlumno));
+            if (null == alumno){
+                throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
+            }
 
+        }catch(NoEncontradoException ex){
+            ex.printStackTrace();
+            throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            throw new Exception(Constant.ERROR_SISTEMA);
+        }
+
+        return null;
+    }
 }
